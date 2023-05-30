@@ -7,7 +7,12 @@ import random
 
 # Page 0
 # Choose cards 
+
+
 def newgame():
+    '''
+    Set variables for the game
+    '''
     print("New Game function starts here")
     global unlimitted_deck
     unlimitted_deck = [2,3,4,5,6,7,8,10,10,10,10,11]
@@ -23,13 +28,19 @@ def newgame():
     casino_points = 0
     print(f"function 0: player_pints {player_points} and casino points {casino_points}")
 
+
 newgame()
 
 print("------------------------------------------------------------------------")
-
 # Page 1
 # Giving two cards two casiono and hiding 1
+
+
 def casino_gets_two_cards():
+    '''
+    Function assign two random numbers from the deck to cassion array.
+    '''
+
     # Giving first two cards to  casino
     casino_cards.append(random.choice(unlimitted_deck))
     casino_cards.append(random.choice(unlimitted_deck))
@@ -44,45 +55,40 @@ casino_gets_two_cards()
 print("------------------------------------------------------------------------")
 # Page 2
 # Giving two cards two player.
+
+
 def player_gets_two_cards():
+    '''
+    Assign tow random numbers from unlimitted deck to player array
+    '''
     # Giving first two cards to  casino
-    #player_cards.append(random.choice(unlimitted_deck))
-    #player_cards.append(random.choice(unlimitted_deck))
+    # player_cards.append(random.choice(unlimitted_deck))
+    # player_cards.append(random.choice(unlimitted_deck))
     player_cards = [11,10]
     print(f"player array {player_cards}")
     print(f"sum of the array is {sum(player_cards)}")
     return player_cards
     
 
-player_gets_two_cards(player_cards)
+player_gets_two_cards()
 print("------------------------------------------------------------------------")
 
 print("player starts it game in the function bellow")
 
-def player_start_first_playing(player_cards, player_points):
+
+def player_start_first_playing(player_cards, player_points, casino_points ):
+    '''
+    This action helps to player to make his first move and win or loss
+    '''
     print(f"sum of the array is {sum(player_cards)}")
     if sum(player_cards) == 21:
         print("The player won this round")
         player_points = player_points + 1
-        print(f"The score is player: {player_points} casino: {casino_points }")
+        print(f"The score is player: {player_points} casino: {casino_points}")
         return player_points
 
 
-player_start_first_playing(player_cards, player_points)
-
-'''
-# Giving first two cards to player 
+player_start_first_playing(player_cards, player_points, casino_points)
 
 
-    print(f"The player cards are{player_cards}")
-    print(f"Total sum of your cards is {player_cards[0]+player_cards[1]} ")
 
-
-'''
-'''
-if player_cards[0]+player_cards[1] == 21:
-    print("Player Won")
-    player_points = player_points + 1
-    print(f"score is player: {player_points} casino {casino_points = 0}")
-    pass
-'''
