@@ -61,34 +61,44 @@ def player_gets_two_cards():
     '''
     Assign tow random numbers from unlimitted deck to player array
     '''
+    global player_cards
     # Giving first two cards to  casino
     # player_cards.append(random.choice(unlimitted_deck))
     # player_cards.append(random.choice(unlimitted_deck))
-    player_cards = [11,10]
+    player_cards = [11,11]
     print(f"player array {player_cards}")
     print(f"sum of the array is {sum(player_cards)}")
     return player_cards
     
 
 player_gets_two_cards()
-print("------------------------------------------------------------------------")
-
-print("player starts it game in the function bellow")
+print("----------------------------------------------------------------------")
 
 
-def player_start_first_playing(player_cards, player_points, casino_points ):
+
+
+def player_start_first_playing():
     '''
     This action helps to player to make his first move and win or loss
     '''
+    print("Start player_start_first_playing()")
+    global player_cards, player_points, casino_points
+    print(f"sum of the array is {player_cards}")
     print(f"sum of the array is {sum(player_cards)}")
     if sum(player_cards) == 21:
         print("The player won this round")
         player_points = player_points + 1
         print(f"The score is player: {player_points} casino: {casino_points}")
         return player_points
+    if sum(player_cards) == 22:
+        # print(f" first value is {player_cards[0]} second value {player_cards[1]}")
+        player_cards[1] = 1
+        # print(f" first value is {player_cards[0]} second value {player_cards[1]}")
+        print("Since you have to aces and sum of them is 22, the second Ace counts as 1")
+ 
+# player_cards, player_points, casino_points
 
-
-player_start_first_playing(player_cards, player_points, casino_points)
+player_start_first_playing()
 
 
 
