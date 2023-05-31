@@ -63,9 +63,9 @@ def player_gets_two_cards():
     '''
     global player_cards
     # Giving first two cards to  casino
-    # player_cards.append(random.choice(unlimitted_deck))
-    # player_cards.append(random.choice(unlimitted_deck))
-    player_cards = [11,11]
+    player_cards.append(random.choice(unlimitted_deck))
+    player_cards.append(random.choice(unlimitted_deck))
+    # player_cards = [11,11]
     print(f"player array {player_cards}")
     print(f"sum of the array is {sum(player_cards)}")
     return player_cards
@@ -101,6 +101,29 @@ def player_start_first_playing():
     print(f"The sum of the cards is {sum(player_cards)}")
     print(f" Do you want additional card? Please press '1' for yes and '0' for No")
 # player_cards, player_points, casino_points
+    user_response_str = input("Enter a number: ")
+    print(user_response_str)
+    print(type(user_response_str))
+
+    is_numeric = False
+    while not is_numeric:
+        print("Hey I am numeric loop")
+        if user_response_str.isnumeric():
+            is_numeric = True
+        else: 
+            print("Input is not valid, press enter 0 or 1")
+            user_response_str = input("Enter a number: ")
+
+    user_response = int(user_response_str)
+    
+
+    while user_response != 0 and user_response != 1:
+        print("hey I am 0 or 1 loop")
+        print("Invalid input. Please enter 0 or 1.")
+        user_response = int(input("Enter a number (0 or 1): "))
+    
+    print(user_response)
+
 
 player_start_first_playing()
 
