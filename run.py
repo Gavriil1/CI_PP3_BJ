@@ -95,7 +95,11 @@ def player_start_first_playing():
         player_cards[1] = 1
         # print(f" first value is {player_cards[0]} second value {player_cards[1]}")
         print("Since you have to aces and sum of them is 22, the second Ace counts as 1")
- 
+    print(f"Player, you have {len(player_cards)} cards. The cards have the following values")
+    for card in player_cards:
+        print(f"    {card}")
+    print(f"The sum of the cards is {sum(player_cards)}")
+    print(f" Do you want additional card? Please press '1' for yes and '0' for No")
 # player_cards, player_points, casino_points
 
 player_start_first_playing()
