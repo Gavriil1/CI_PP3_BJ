@@ -101,11 +101,31 @@ def player_start_first_playing():
     print(f"The sum of the cards is {sum(player_cards)}")
     print(f" Do you want additional card? Please press '1' for yes and '0' for No")
 # player_cards, player_points, casino_points
-    user_response_str = input("Enter a number: ")
-    print(user_response_str)
-    print(type(user_response_str))
+    
+    valid_entry = False
 
-    is_numeric = False
+    while not valid_entry:
+        user_response_str = input("Enter a number: ")
+        print(user_response_str)
+        print(type(user_response_str))
+        if user_response_str.isnumeric():
+            user_response = int(user_response_str)
+            print(type(user_response))
+            print(user_response)
+            if user_response == 0 or user_response == 1:
+                 valid_entry = True
+            else:
+                print("Please enter valid entry '0' or '1'")
+
+        else:
+            print("Please enter valid entry '0' or '1'")
+
+
+
+
+
+
+    '''
     while not is_numeric:
         print("Hey I am numeric loop")
         if user_response_str.isnumeric():
@@ -121,7 +141,7 @@ def player_start_first_playing():
         print("hey I am 0 or 1 loop")
         print("Invalid input. Please enter 0 or 1.")
         user_response = int(input("Enter a number (0 or 1): "))
-    
+    '''
     print(user_response)
 
 
