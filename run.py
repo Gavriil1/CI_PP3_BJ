@@ -121,28 +121,46 @@ def player_start_first_playing():
             print("Please enter valid entry '0' or '1'")
 
     print(user_response)
-    if user_response == 1:
+    while user_response == 1:
         player_cards.append(random.choice(unlimitted_deck))
         print(player_cards)
-    if sum(player_cards) == 21:
-        print("The player won this round because sum of his cards is 21")
-        print("Black Jack !")
-        player_points = player_points + 1
-        print(f"The score is player: {player_points} casino: {casino_points}")
-        return player_points
-    if sum(player_cards) > 21:
-        print("The sum of the cards is above 21. Casino Won")
-        print(f"the sum of the cards is {sum(player_cards)}")
-        casino_points = casino_points + 1
-        print(f"The score is player: {player_points} casino: {casino_points}")
-        return player_points    
-    if sum(player_cards) < 21:
-        print(f"Player, you have {len(player_cards)} cards. The cards have the following values")
-    for card in player_cards:
-        print(f"    {card}")
-    print(f"The sum of the cards is {sum(player_cards)}")
-    print(f" Do you want additional card? Please press '1' for yes and '0' for No")
-    
+        if sum(player_cards) == 21:
+            print("The player won this round because sum of his cards is 21")
+            print("Black Jack !")
+            player_points = player_points + 1
+            print(f"The score is player: {player_points} casino: {casino_points}")
+            return player_points
+        if sum(player_cards) > 21:
+            print("The sum of the cards is above 21. Casino Won")
+            print(f"the sum of the cards is {sum(player_cards)}")
+            casino_points = casino_points + 1
+            print(f"The score is player: {player_points} casino: {casino_points}")
+            return player_points    
+        if sum(player_cards) < 21:
+            print(f"Player, you have {len(player_cards)} cards. The cards have the following values")
+        for card in player_cards:
+            print(f"    {card}")
+        print(f"The sum of the cards is {sum(player_cards)}")
+        print(f" Do you want additional card? Please press '1' for yes and '0' for No")
+        
+        valid_entry = False
+
+        while not valid_entry:
+            user_response_str = input("Enter a number: ")
+            print(user_response_str)
+            print(type(user_response_str))
+            if user_response_str.isnumeric():
+                user_response = int(user_response_str)
+                print(type(user_response))
+                print(user_response)
+                if user_response == 0 or user_response == 1:
+                    valid_entry = True
+                else:
+                    print("Please enter valid entry '0' or '1'")
+
+            else:
+                print("Please enter valid entry '0' or '1'")
+        
     if user_response == 0:
         print('Start casino play!')
 
