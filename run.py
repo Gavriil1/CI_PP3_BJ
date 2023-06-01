@@ -42,9 +42,9 @@ def casino_gets_two_cards():
     '''
     global casino_cards
     # Giving first two cards to  casino
-    casino_cards.append(random.choice(unlimitted_deck))
-    casino_cards.append(random.choice(unlimitted_deck))
-    # casino_cards = [11, 11]
+    # casino_cards.append(random.choice(unlimitted_deck))
+    # casino_cards.append(random.choice(unlimitted_deck))
+    casino_cards = [10, 6]
     print(f"casino array is {casino_cards}")
     print(f"1st card of casino is hidden. Second card is: {casino_cards[1]}")
     return casino_cards
@@ -63,9 +63,9 @@ def player_gets_two_cards():
     '''
     global player_cards
     # Giving first two cards to  casino
-    player_cards.append(random.choice(unlimitted_deck))
-    player_cards.append(random.choice(unlimitted_deck))
-    # player_cards = [11,11]
+    # player_cards.append(random.choice(unlimitted_deck))
+    # player_cards.append(random.choice(unlimitted_deck))
+    player_cards = [11,9]
     print(f"player array {player_cards}")
     print(f"sum of the array is {sum(player_cards)}")
     return player_cards
@@ -173,7 +173,7 @@ def player_start_first_playing():
 
 def casino_start_first_playing():
     print("casino_start_first_playing starts here")
-    global casino_cards
+    global casino_cards, casino_points, player_points
     print(f"casino cards are {casino_cards}")
     print(f"The sum of casino cards is {sum(casino_cards)}")
     if sum(casino_cards) == 22:
@@ -181,7 +181,14 @@ def casino_start_first_playing():
         casino_cards[1] = 1
         print(f" first value is {player_cards[0]} second value {player_cards[1]}")
         print("Since casino have to aces and sum of them is 22, the second Ace counts as 1")
+    if sum(casino_cards) == 21:
+        print("Casino sum is  21. Casino won player lost")
+        casino_points = casino_points + 1
+        print(f"The score is player: {player_points} casino: {casino_points}")
+        return casino_points
+    
     print(f"The sum of casino cards is {sum(casino_cards)} and of player cards {sum(player_cards)}")
+
     if sum(casino_cards) > sum(player_cards):
         print(f"cards sum of the casino: {sum(casino_cards)} sum of the plaer cards {sum(player_cards)}")
         print("Casiono SUmo of cards is higher that of a player. Casion won")
@@ -189,7 +196,21 @@ def casino_start_first_playing():
         casino_points = casino_points + 1
         print(f"The score is player: {player_points} casino: {casino_points}")
         return casino_points
-
-
+    if sum(casino_cards) < 17:
+        print("I am taking new card")
+        casino_cards.append(random.choice(unlimitted_deck))
+        print(casino_cards)
+        if sum(casino_cards) >21:
+            print("Casino sum is over 21. Casino lost player won")
+            player_points = player_points + 1
+            print(f"The score is player: {player_points} casino: {casino_points}")
+            return player_points
+        if sum(casino_cards) == 21:
+            print("Casino sum is  21. Casino won player lost")
+            casino_points = casino_points + 1
+            print(f"The score is player: {player_points} casino: {casino_points}")
+            return casino_points
+    
 
 casino_start_first_playing()
+    
