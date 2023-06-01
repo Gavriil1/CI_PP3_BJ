@@ -210,6 +210,13 @@ def casino_start_first_playing():
             casino_points = casino_points + 1
             print(f"The score is player: {player_points} casino: {casino_points}")
             return casino_points
+        if sum(casino_cards) >= sum(player_cards):
+            print("Casino sum is  iver player sum. Casino won player lost")
+            casino_points = casino_points + 1
+            print(f"The score is player: {player_points} casino: {casino_points}")
+            return casino_points
+    else:
+        
     
 
 casino_start_first_playing()
