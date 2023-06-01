@@ -40,11 +40,11 @@ def casino_gets_two_cards():
     '''
     Function assign two random numbers from the deck to cassion array.
     '''
-
+    global casino_cards
     # Giving first two cards to  casino
     casino_cards.append(random.choice(unlimitted_deck))
     casino_cards.append(random.choice(unlimitted_deck))
-    #casino_cards = [11, 10]
+    # casino_cards = [11, 11]
     print(f"casino array is {casino_cards}")
     print(f"1st card of casino is hidden. Second card is: {casino_cards[1]}")
     return casino_cards
@@ -142,7 +142,7 @@ def player_start_first_playing():
             print(f"    {card}")
         print(f"The sum of the cards is {sum(player_cards)}")
         print(f" Do you want additional card? Please press '1' for yes and '0' for No")
-        
+
         valid_entry = False
 
         while not valid_entry:
@@ -164,7 +164,32 @@ def player_start_first_playing():
     if user_response == 0:
         print('Start casino play!')
 
-player_start_first_playing()
+# player_start_first_playing()
+
+
+# def(): casino_start_first_playing() 
 
 
 
+def casino_start_first_playing():
+    print("casino_start_first_playing starts here")
+    global casino_cards
+    print(f"casino cards are {casino_cards}")
+    print(f"The sum of casino cards is {sum(casino_cards)}")
+    if sum(casino_cards) == 22:
+        print(f" first value is {casino_cards[0]} second value {casino_cards[1]}")
+        casino_cards[1] = 1
+        print(f" first value is {player_cards[0]} second value {player_cards[1]}")
+        print("Since casino have to aces and sum of them is 22, the second Ace counts as 1")
+    print(f"The sum of casino cards is {sum(casino_cards)} and of player cards {sum(player_cards)}")
+    if sum(casino_cards) > sum(player_cards):
+        print(f"cards sum of the casino: {sum(casino_cards)} sum of the plaer cards {sum(player_cards)}")
+        print("Casiono SUmo of cards is higher that of a player. Casion won")
+        print("Casino won this round")
+        casino_points = casino_points + 1
+        print(f"The score is player: {player_points} casino: {casino_points}")
+        return casino_points
+
+
+
+casino_start_first_playing()
