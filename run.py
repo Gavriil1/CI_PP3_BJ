@@ -230,30 +230,51 @@ def main():
     global player_points, casino_points, print_delay
     player_points = 0
     casino_points = 0
-    k = 1
+    game = 1
     print_delay = 1
-    print("Hello Player. Welcome to BlackJac")
-    time.sleep(print_delay)
-    print("The game has 10 rounds")
-    time.sleep(print_delay)
-    print("Result of each round and overall results are going to be saved in Excel")
-    time.sleep(print_delay)
-    input("Press any key to continue: ")
-    time.sleep(print_delay)
-    while k < 10:
-        print(f"ROUND {k}")
-        time.sleep(print_delay)
-        newgame()
-        casino_gets_two_cards()
-        player_gets_two_cards()
-        player_start_first_playing()
+    while True:
         print("-------------------------------------------------")
         time.sleep(print_delay)
         print("-------------------------------------------------")
         time.sleep(print_delay)
-        print("NEW ROUND STARTS")
-        k = k+1
-        
+        print("Hello Player. Welcome to BlackJac")
+        time.sleep(print_delay)
+        print("The game has 10 rounds")
+        time.sleep(print_delay)
+        print("Result of each round and overall results are going to be saved in Excel")
+        time.sleep(print_delay)
+        input("Press any key to continue: ")
+        while game < 10:
+            print("NEW ROUND STARTS")
+            print(f"ROUND {game}")
+            time.sleep(print_delay)
+            newgame()
+            casino_gets_two_cards()
+            player_gets_two_cards()
+            player_start_first_playing()
+            print("-------------------------------------------------")
+            time.sleep(print_delay)
+            print("-------------------------------------------------")
+            time.sleep(print_delay)
+            game = game+1
+        time.sleep(print_delay)
+        print("After 10 rounds the score is ")
+        time.sleep(print_delay)
+        print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
+        if player_points > casino_points:
+            time.sleep(print_delay)
+            print("player won a game of 10 rounds")
+        elif player_points < casino_points:
+            time.sleep(print_delay)
+            print("Casino won a game of 10 rounds")
+        else:
+            time.sleep(print_delay)
+            print("Draw!")
+        time.sleep(print_delay)
+        input("TO PLAY BLACK JACK AGAIN PRESS  ANY KEY: ")
+        player_points = 0
+        casino_points = 0
+        game = 1
 
 main()
 
