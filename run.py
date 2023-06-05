@@ -2,11 +2,13 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 # https://www.blackjackapprenticeship.com/how-to-play-blackjack/#:~:text=Blackjack%20is%20played%20with%20a,%2CK)%20count%20as%2010.
-
+from datetime import datetime
 import random
 import time
 import gspread
 from google.oauth2.service_account import Credentials
+
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -19,11 +21,15 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('blackjack')
 
-sales = SHEET.worksheet('sales')
 
-data = sales.get_all_values()
+# log file variables
+logs = SHEET.worksheet('logfile')
+logs_to_update = SHEET.worksheet("logfile")
+logs_data = logs.get_all_values()
 
-print(data)
+logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "This is my timestamp"])
+
+#print(logs_data)
 
 
 
@@ -51,6 +57,7 @@ def casino_gets_two_cards():
     global casino_cards
     casino_cards.append(random.choice(unlimitted_deck))
     casino_cards.append(random.choice(unlimitted_deck))
+    logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), f"Casino gets two cards {casino_cards}"])
 
 
 def player_gets_two_cards():
@@ -60,6 +67,7 @@ def player_gets_two_cards():
     global player_cards
     player_cards.append(random.choice(unlimitted_deck))
     player_cards.append(random.choice(unlimitted_deck))
+    logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), f"Player gets two cards {player_cards}"])
 
 
 def casino_start_first_playing():
@@ -154,10 +162,12 @@ def player_start_first_playing():
         player_points = player_points + 1
         time.sleep(print_delay)
         print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
+        logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Player won a game because of BJ"])
         return player_points
     if sum(player_cards) == 22:
         player_cards[1] = 1
         time.sleep(print_delay)
+        logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Player has to Aces. Changing value of second to 1"])
         print("PLAYER HAS TWO ACES. SECOND COUNTS AS  1")
     print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
     time.sleep(print_delay)
@@ -193,6 +203,7 @@ def player_start_first_playing():
 
     print(user_response)
     while user_response == 1:
+        logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), f"Player gets an additonal card"])
         player_cards.append(random.choice(unlimitted_deck))
         print(player_cards)
         if sum(player_cards) == 21:
@@ -245,6 +256,7 @@ def player_start_first_playing():
                 print("PLEASE ENTER VALID ENTRY '0' OR '1'")
         
     if user_response == 0:
+        logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Player does not get a card and casiono starts"])
         time.sleep(print_delay)
         print('CASINO STARTS PLAYING!')
         casino_start_first_playing()
@@ -253,10 +265,12 @@ def player_start_first_playing():
 
 def main():
     global player_points, casino_points, print_delay
+    logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "The games starts"])
     player_points = 0
     casino_points = 0
     game = 1
     print_delay = 1
+    logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), f"Set variables for the game"])
     while True:
         print("-------------------------------------------------")
         time.sleep(print_delay)
@@ -269,6 +283,7 @@ def main():
         print("Result of each round and overall results are going to be saved in Excel")
         time.sleep(print_delay)
         input("Press any key to continue: ")
+        logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Player pressed key to start a game"])
         while game < 10:
             print("NEW ROUND STARTS")
             print(f"ROUND {game}")
@@ -289,12 +304,15 @@ def main():
         if player_points > casino_points:
             time.sleep(print_delay)
             print("player won a game of 10 rounds")
+            logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Player Won the entire game"])
         elif player_points < casino_points:
             time.sleep(print_delay)
             print("Casino won a game of 10 rounds")
+            logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Casino Won the entire game"])
         else:
             time.sleep(print_delay)
             print("Draw!")
+            logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Casino - Player Draw"])
         time.sleep(print_delay)
         input("TO PLAY BLACK JACK AGAIN PRESS  ANY KEY: ")
         player_points = 0
