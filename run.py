@@ -28,16 +28,20 @@ logs_to_update = SHEET.worksheet("logfile")
 logs_data = logs.get_all_values()
 logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "This is my timestamp"])
 
-# Player Score variables
+# Score variables
 scores = SHEET.worksheet('scores')
 scores_to_update = SHEET.worksheet("scores")
-print('ooooooooooooooooooooooooooooooo')
 # scores_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), 0,0])
 
-
-
-
-
+# Probability variables
+print("**************************************************")
+results_range = 'B2:B'
+results = SHEET.worksheet('scores').get(results_range)
+non_empty_results = [result[0] for result in results if result[0] != '']
+print(non_empty_results)
+#print(sum(non_empty_results))
+a = type(non_empty_results)
+print(a)
 
 
 
