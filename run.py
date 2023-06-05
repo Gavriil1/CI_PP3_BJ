@@ -40,8 +40,12 @@ results = SHEET.worksheet('scores').get(results_range)
 non_empty_results = [result[0] for result in results if result[0] != '']
 print(non_empty_results)
 #print(sum(non_empty_results))
-a = type(non_empty_results)
-print(a)
+non_empty_results = [int(x) for x in non_empty_results]
+print(non_empty_results)
+print(len(non_empty_results))
+print(sum(non_empty_results))
+player_win = sum(non_empty_results)/len(non_empty_results)
+print(player_win)
 
 
 
