@@ -23,9 +23,9 @@ SHEET = GSPREAD_CLIENT.open('blackjack')
 
 # log file variables
 logs = SHEET.worksheet('logfile')
-logs_u = SHEET.worksheet("logfile")
+logs_to_update = SHEET.worksheet("logfile")
 logs_data = logs.get_all_values()
-logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "This is my timestamp"])
+logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "This is my timestamp"])
 
 # Player Score variables
 scores = SHEET.worksheet('scores')
@@ -54,7 +54,7 @@ def casino_gets_two_cards():
     global casino_cards
     casino_cards.append(random.choice(unlimitted_deck))
     casino_cards.append(random.choice(unlimitted_deck))
-    logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), f"Casino gets two cards {casino_cards}"])
+    logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), f"Casino gets two cards {casino_cards}"])
 
 
 def player_gets_two_cards():
@@ -64,7 +64,7 @@ def player_gets_two_cards():
     global player_cards
     player_cards.append(random.choice(unlimitted_deck))
     player_cards.append(random.choice(unlimitted_deck))
-    logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), f"Player gets two cards {player_cards}"])
+    logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), f"Player gets two cards {player_cards}"])
 
 
 def casino_start_first_playing():
@@ -83,7 +83,7 @@ def casino_start_first_playing():
         time.sleep(print_delay)
         print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
         # logfile
-        logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Casino wins Bj"])
+        logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Casino wins Bj"])
         # score record
         scores_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), 0, 1])
         return
@@ -101,7 +101,7 @@ def casino_start_first_playing():
         print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
         # score record
         scores_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), 0, 1])
-        logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Casino Wins. Casino Sum > Player Sum"])
+        logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Casino Wins. Casino Sum > Player Sum"])
         return
 
     while sum(casino_cards) < 17:
@@ -115,7 +115,7 @@ def casino_start_first_playing():
             player_points = player_points + 1
             # score record
             scores_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), 1, 0])
-            logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Sum of the cards of casino >21 player wins"])
+            logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Sum of the cards of casino >21 player wins"])
             time.sleep(print_delay)
             print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
             return
@@ -125,7 +125,7 @@ def casino_start_first_playing():
             casino_points = casino_points + 1
             # score record:
             scores_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), 0, 1])
-            logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Casino wins. BJ!"])
+            logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Casino wins. BJ!"])
             time.sleep(print_delay)
             print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
             return
@@ -134,7 +134,7 @@ def casino_start_first_playing():
             print("CASINO SUM > PLAYER SUM. CASINO WINS!")
             casino_points = casino_points + 1
             scores_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), 0, 1])
-            logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "casinosum>playersum casino wins"])
+            logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "casinosum>playersum casino wins"])
             time.sleep(print_delay)
             print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
             return
@@ -145,7 +145,7 @@ def casino_start_first_playing():
         casino_points = casino_points + 1
         # score record
         scores_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), 0, 1])
-        logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Casino wins. casinosum>playersum"])
+        logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Casino wins. casinosum>playersum"])
         time.sleep(print_delay)
         print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
         return
@@ -156,14 +156,14 @@ def casino_start_first_playing():
         player_points = player_points + 1
         time.sleep(print_delay)
         scores_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), 1, 0])
-        logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "player wins playersum>casinosum"])
+        logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "player wins playersum>casinosum"])
         print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
         return
 
     if sum(casino_cards) == sum(player_cards):
         time.sleep(print_delay)
         print("CASINO SUM = PLAYER SUM. DRAW!")
-        logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Draw"])
+        logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Draw"])
         time.sleep(print_delay)
         print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
         return
@@ -182,12 +182,12 @@ def player_start_first_playing():
         print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
         # score record
         scores_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), 1, 0])
-        logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Player won a game because of BJ"])
+        logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Player won a game because of BJ"])
         return player_points
     if sum(player_cards) == 22:
         player_cards[1] = 1
         time.sleep(print_delay)
-        logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Player has to Aces. Changing value of second to 1"])
+        logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Player has to Aces. Changing value of second to 1"])
         print("PLAYER HAS TWO ACES. SECOND COUNTS AS  1")
     print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
     time.sleep(print_delay)
@@ -223,7 +223,7 @@ def player_start_first_playing():
 
     print(user_response)
     while user_response == 1:
-        logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), f"Player gets an additonal card"])
+        logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), f"Player gets an additonal card"])
         player_cards.append(random.choice(unlimitted_deck))
         print(player_cards)
         if sum(player_cards) == 21:
@@ -236,7 +236,7 @@ def player_start_first_playing():
             print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
             # score record
             scores_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), 1, 0])
-            logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "BJ player wins"])
+            logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "BJ player wins"])
             return player_points
         if sum(player_cards) > 21:
             time.sleep(print_delay)
@@ -248,7 +248,7 @@ def player_start_first_playing():
             print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
             # score record
             scores_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), 0, 1])
-            logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Sum of the cards of player >21 casino wins"])
+            logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Sum of the cards of player >21 casino wins"])
             return player_points
         if sum(player_cards) < 21:
             time.sleep(print_delay)
@@ -282,7 +282,7 @@ def player_start_first_playing():
                 print("PLEASE ENTER VALID ENTRY '0' OR '1'")
 
     if user_response == 0:
-        logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Player does not get a card and casiono starts"])
+        logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Player does not get a card and casiono starts"])
         time.sleep(print_delay)
         print('CASINO STARTS PLAYING!')
         casino_start_first_playing()
@@ -290,12 +290,12 @@ def player_start_first_playing():
 
 def main():
     global player_points, casino_points, print_delay
-    logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "The games starts"])
+    logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "The games starts"])
     player_points = 0
     casino_points = 0
     game = 1
     print_delay = 1
-    logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), f"Set variables for the game"])
+    logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), f"Set variables for the game"])
     while True:
         print("-------------------------------------------------")
         time.sleep(print_delay)
@@ -308,9 +308,9 @@ def main():
         print("Result of each round and overall results are going to be saved in Excel")
         time.sleep(print_delay)
         input("Press any key to continue: ")
-        logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Player pressed key to start a game"])
+        logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Player pressed key to start a game"])
         while game < 10:
-            logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "New Round starts"])
+            logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "New Round starts"])
             print("NEW ROUND STARTS")
             print(f"ROUND {game}")
             time.sleep(print_delay)
@@ -330,15 +330,15 @@ def main():
         if player_points > casino_points:
             time.sleep(print_delay)
             print("player won a game of 10 rounds")
-            logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Player Won the entire game"])
+            logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Player Won the entire game"])
         elif player_points < casino_points:
             time.sleep(print_delay)
             print("Casino won a game of 10 rounds")
-            logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Casino Won the entire game"])
+            logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Casino Won the entire game"])
         else:
             time.sleep(print_delay)
             print("Draw!")
-            logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Casino - Player Draw"])
+            logs_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "Casino - Player Draw"])
         time.sleep(print_delay)
         input("TO PLAY BLACK JACK AGAIN PRESS  ANY KEY: ")
         player_points = 0
