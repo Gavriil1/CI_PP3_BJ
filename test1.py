@@ -30,3 +30,10 @@ existing_row_a = scores.row_values(1)  # Assuming row A is the first row (index 
 # Append new values to columns B and C
 new_values_b_c = [datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "This is my timestamp"]
 scores_to_update.append_row([existing_row_a[0], *new_values_b_c])
+
+
+
+
+
+
+# new file
