@@ -26,14 +26,12 @@ logs = SHEET.worksheet('logfile')
 logs_u = SHEET.worksheet("logfile")
 logs_data = logs.get_all_values()
 tstamp = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-# logs_u.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "This is my timestamp"])
 logs_u.append_row([tstamp, "This is my timestamp"])
 
 # Player Score variables
 scores = SHEET.worksheet('scores')
 scores_to_update = SHEET.worksheet("scores")
 print('ooooooooooooooooooooooooooooooo')
-# scores_to_update.append_row([datetime.now().strftime("%d/%m/%Y %H:%M:%S"), 0,0])
 
 
 def newgame():
@@ -90,11 +88,11 @@ def casino_start_first_playing():
         scores_to_update.append_row([tstamp, 0, 1])
         return
     time.sleep(print_delay)
-    print(f"The sum of casino cards is {sum(casino_cards)} and of player cards {sum(player_cards)}")
+    print(f"Casino SUM {sum(casino_cards)} Player Sum {sum(player_cards)}")
 
     if sum(casino_cards) > sum(player_cards):
         time.sleep(print_delay)
-        print(f"CASINO SUM: {sum(casino_cards)} PLAYER SUM {sum(player_cards)}")
+        print(f"CASINOSUM: {sum(casino_cards)} PLAYER SUM {sum(player_cards)}")
         time.sleep(print_delay)
         print("CASINO SUM > PLAYER SUM. CASINO WINS!")
         time.sleep(print_delay)
@@ -117,7 +115,7 @@ def casino_start_first_playing():
             player_points = player_points + 1
             # score record
             scores_to_update.append_row([tstamp, 1, 0])
-            logs_u.append_row([tstamp, "Sum of the cards of casino >21 player wins"])
+            logs_u.append_row([tstamp, "Casino SUm > 21 player wins"])
             time.sleep(print_delay)
             print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
             return
@@ -189,7 +187,7 @@ def player_start_first_playing():
     if sum(player_cards) == 22:
         player_cards[1] = 1
         time.sleep(print_delay)
-        logs_u.append_row([tstamp, "Player has to Aces. Changing value of second to 1"])
+        logs_u.append_row([tstamp, "Player has two Aces.Changing second to 1"])
         print("PLAYER HAS TWO ACES. SECOND COUNTS AS  1")
     print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
     time.sleep(print_delay)
@@ -250,7 +248,7 @@ def player_start_first_playing():
             print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
             # score record
             scores_to_update.append_row([tstamp, 0, 1])
-            logs_u.append_row([tstamp, "Sum of the cards of player >21 casino wins"])
+            logs_u.append_row([tstamp, " Player Sum >21 casino wins"])
             return player_points
         if sum(player_cards) < 21:
             time.sleep(print_delay)
@@ -284,7 +282,7 @@ def player_start_first_playing():
                 print("PLEASE ENTER VALID ENTRY '0' OR '1'")
 
     if user_response == 0:
-        logs_u.append_row([tstamp, "Player does not get a card and casiono starts"])
+        logs_u.append_row([tstamp, "Player pressed 0. Casiono starts"])
         time.sleep(print_delay)
         print('CASINO STARTS PLAYING!')
         casino_start_first_playing()
@@ -307,7 +305,7 @@ def main():
         time.sleep(print_delay)
         print("The game has 10 rounds")
         time.sleep(print_delay)
-        print("Result of each round and overall results are going to be saved in Excel")
+        print("Result of each round are saved in Excel")
         time.sleep(print_delay)
         input("Press any key to continue: ")
         logs_u.append_row([tstamp, "Player pressed key to start a game"])
