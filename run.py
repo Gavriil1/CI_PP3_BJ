@@ -2,11 +2,14 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 # https://www.blackjackapprenticeship.com/how-to-play-blackjack/#:~:text=Blackjack%20is%20played%20with%20a,%2CK)%20count%20as%2010.
+
+
 from datetime import datetime
 import random
 import time
 import gspread
 from google.oauth2.service_account import Credentials
+
 
 
 SCOPE = [
@@ -39,7 +42,7 @@ def newgame():
     Set variables for the game
     '''
     global unlimitted_deck
-    unlimitted_deck = [2, 3, 4, 5, 6, 7, 8, 10, 10, 10, 10, 11]
+    unlimitted_deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
     global player_cards
     player_cards = []
     global casino_cards
@@ -204,7 +207,7 @@ def player_start_first_playing():
     valid_entry = False
 
     while not valid_entry:
-        user_response_str = input("ENTER A NUMBER: ")
+        user_response_str = input("ENTER A NUMBER:\n ")
         # print(user_response_str)
         # print(type(user_response_str))
         if user_response_str.isnumeric():
@@ -266,7 +269,7 @@ def player_start_first_playing():
         valid_entry = False
 
         while not valid_entry:
-            user_response_str = input("ENTER NUMBER: ")
+            user_response_str = input("ENTER NUMBER:\n")
             # print(user_response_str)
             # print(type(user_response_str))
             if user_response_str.isnumeric():
@@ -307,7 +310,7 @@ def main():
         time.sleep(print_delay)
         print("Result of each round are saved in Excel")
         time.sleep(print_delay)
-        input("Press any key to continue: ")
+        input("Press any key to continue:\n ")
         logs_u.append_row([tstamp, "Player pressed key to start a game"])
         while game < 10:
             logs_u.append_row([tstamp, "New Round starts"])
@@ -340,7 +343,7 @@ def main():
             print("Draw!")
             logs_u.append_row([tstamp, "Casino - Player Draw"])
         time.sleep(print_delay)
-        input("TO PLAY BLACK JACK AGAIN PRESS  ANY KEY: ")
+        input("TO PLAY BLACK JACK AGAIN PRESS  ANY KEY:\n")
         player_points = 0
         casino_points = 0
         game = 1
