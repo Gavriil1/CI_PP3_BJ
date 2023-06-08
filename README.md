@@ -49,21 +49,22 @@ Rules of the game are:
 
 ### User Goals
 
-- Play a fun and easy game with other player
-- Read the rules of the game
-- Be able to log in to an existing account
+
+- Play a fun casino game.
+- Receive feedback from the game, to verify the number of the round and the
+score between casino and player.
 
 ### Site Owner Goals
 
-- Create a game that is easy and clear to user
-- Ensure that users understand the purpose of the game
-- Create a game that gives feedback to the user whilst playing
+- Create user friendly and intiutive environment for the game.
+- Create a game that save log file of the game.
+- Create a code which collect statistics of the game
 
 ## User Experience
 
 ### Target Audience
 
-There is no specific audience of this game. However, I would recommend that players are at least 6 years old, as per the classic board game.
+The target audience of the game is  people 18+, since it is it a casino game.
 
 ### User Requirements and Expectations
 
