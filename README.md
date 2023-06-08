@@ -58,20 +58,19 @@ score between casino and player.
 
 - Create user friendly and intiutive environment for the game.
 - Create a game that save log file of the game.
-- Create a code which collect statistics of the game
+- Create a code which collect statistics about results of the game
 
 ## User Experience
 
 ### Target Audience
 
-The target audience of the game is  people 18+, since it is it a casino game.
+The target audience of the game is  people 18+, because it is it a casino game.
 
 ### User Requirements and Expectations
 
-- A simple, error-free game
-- Straightforward navigation
-- Game personalisation by entering players' names
-- Feedback on game results
+- Simple, easy, intuitive interface to play a game.
+- Good commentary, to understand and enjoy a game flow.
+- Information about final score when the game is over.
 
 ### User Manual
 
@@ -86,8 +85,17 @@ Operation: Input a numeric value and press enter key.
 At any point of the game, if the user inputs a number which do not correspond to the available option then they will be prompt to try again.
 
 #### Game rules
-With the first option to view game rules, the users are presented with a short game rules and once read they can go back to the main menu.
-Operation: Click any key and enter.
+
+Rules of the game are:
+
+    1) Player and Casino receives two random cards from the followoing array: unlimitted_deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
+    2) Player can see both his cards and only one card of the casino
+    3) If at some point of the game the same of the cards is over 21 casino/player who have the nand loses straight away
+    4) If at some point of the game, the sum of the card is 21, casino/player who have the card wins straight away.
+    5) If sum of the cards is bellow 21 for both players and noone wants to take additional card, we compaire sum of player and casino cards to define a winner.
+
+    6) After receiving two cards the player may choose to receive additional card.
+    7) If player do not want to take additional card, casino check if Casino SUM > Player SUM and if Casino SUM 17. If it is the case, casino takes additional card.  If the above statement is not true, casino does not take any additional card.
 
 #### Play
 With the Play Game option, users are asked if they have played the game before or not.
