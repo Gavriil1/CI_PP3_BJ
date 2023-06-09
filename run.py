@@ -34,19 +34,66 @@ logs_u.append_row([tstamp, "This is my timestamp"])
 # Player Score variables
 scores = SHEET.worksheet('scores')
 scores_to_update = SHEET.worksheet("scores")
-print('ooooooooooooooooooooooooooooooo')
+
 
 def welcome_page():
     '''
     welcome page
     '''
-    print("######                                       #")                      
-    print("#     # #        ##    ####  #    #          #   ##    ####  #    # ")
-    print("#     # #       #  #  #    # #   #           #  #  #  #    # #   # ") 
-    print("######  #      #    # #      ####            # #    # #      ####   ")
-    print("#     # #      ###### #      #  #      #     # ###### #      #  #   ")
-    print("#     # #      #    # #    # #   #     #     # #    # #    # #   #  ")
-    print("######  ###### #    #  ####  #    #     #####  #    #  ####  #    # ")
+    print("Welcome to")
+    print("######                                     #")                      
+    print("#     # #        ##    ####  #    #        #   ##    ####  #    # ")
+    print("#     # #       #  #  #    # #   #         #  #  #  #    # #   # ") 
+    print("######  #      #    # #      ####          # #    # #      ####   ")
+    print("#     # #      ###### #      #  #      #   # ###### #      #  #   ")
+    print("#     # #      #    # #    # #   #     #   # #    # #    # #   #  ")
+    print("######  ###### #    #  ####  #    #     ###  #    #  ####  #    # ")
+
+
+def manual():
+    print("1) Player and Casino receives two random cards from the deck]")
+    print("")
+    time.sleep(print_delay)
+    print("2) Player can see both his cards and only one card of the casino")
+    time.sleep(print_delay)
+    print("3) If sum of the cards is over 21 casino/player loses the round")
+    time.sleep(print_delay)
+    print("4) If the sum of the card is 21, casino/player wins the round.")
+    time.sleep(print_delay)
+    print("5) If sum < 21 for both players and noone wants to take additional")
+    print("card, we compaire sums of participants to define a winner.")
+    time.sleep(print_delay)
+    print("6) After receiving cards the player may ask for additional card.")
+    time.sleep(print_delay)
+    print("7) If player does not take additional card, casino takes a card")
+    time.sleep(print_delay)
+    print("if 'Casino SUM' <= 'Player SUM' and if 'Casino SUM' < 17.")
+    time.sleep(print_delay)
+    print("If it is the case, casino takes additional card.  If the above")
+    time.sleep(print_delay)
+    print("statement is not true, casino does not take any additional card.")
+    time.sleep(print_delay)
+    input("To start a game please press any key")
+
+
+def start_game():
+    '''
+    function which starts a game
+    '''
+    print("- "*34)
+    time.sleep(print_delay)
+    print("- "*34)
+    time.sleep(print_delay)
+    print("Hello Player. Welcome to BlackJac")
+    time.sleep(print_delay)
+    print("The game has 10 rounds")
+    time.sleep(print_delay)
+    print("Result of each round are saved in Excel")
+    time.sleep(print_delay)
+    print("Press 1 to start the game.")
+    show_manual = input("To read game rules please press 0, to play a game please press any other key\n")
+    if show_manual == "0":
+        manual()
 
 def newgame():
     '''
@@ -302,42 +349,7 @@ def player_start_first_playing():
         casino_start_first_playing()
 
 
-def main():
-    global player_points, casino_points, print_delay
-    logs_u.append_row([tstamp, "The games starts"])
-    player_points = 0
-    casino_points = 0
-    game = 1
-    print_delay = 1
-    logs_u.append_row([tstamp, f"Set variables for the game"])
-    welcome_page()
-    while True:
-        print("- "*34)
-        time.sleep(print_delay)
-        print("- "*34)
-        time.sleep(print_delay)
-        print("Hello Player. Welcome to BlackJac")
-        time.sleep(print_delay)
-        print("The game has 10 rounds")
-        time.sleep(print_delay)
-        print("Result of each round are saved in Excel")
-        time.sleep(print_delay)
-        input("Press any key to continue:\n ")
-        logs_u.append_row([tstamp, "Player pressed key to start a game"])
-        while game < 10:
-            logs_u.append_row([tstamp, "New Round starts"])
-            print("NEW ROUND STARTS")
-            print(f"ROUND {game}")
-            time.sleep(print_delay)
-            newgame()
-            casino_gets_two_cards()
-            player_gets_two_cards()
-            player_start_first_playing()
-            print("-------------------------------------------------")
-            time.sleep(print_delay)
-            print("-------------------------------------------------")
-            time.sleep(print_delay)
-            game = game+1
+def summary():
         time.sleep(print_delay)
         print("After 10 rounds the score is ")
         time.sleep(print_delay)
@@ -359,6 +371,36 @@ def main():
         player_points = 0
         casino_points = 0
         game = 1
+
+def main():
+    '''
+    main function. Run all other function to run a game
+    '''
+    global player_points, casino_points, print_delay, game
+    logs_u.append_row([tstamp, "The games starts"])
+    player_points = 0
+    casino_points = 0
+    game = 1
+    print_delay = 1
+    logs_u.append_row([tstamp, f"Set variables for the game"])
+    welcome_page()
+    while True:
+        start_game()
+        while game < 11:
+            logs_u.append_row([tstamp, "New Round starts"])
+            print("NEW ROUND STARTS")
+            print(f"ROUND {game}")
+            time.sleep(print_delay)
+            newgame()
+            casino_gets_two_cards()
+            player_gets_two_cards()
+            player_start_first_playing()
+            print("- "*34)
+            time.sleep(print_delay)
+            print("- "*34)
+            time.sleep(print_delay)
+            game = game+1
+        summary()
 
 
 main()
