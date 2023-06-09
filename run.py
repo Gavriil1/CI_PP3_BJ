@@ -38,7 +38,7 @@ scores_to_update = SHEET.worksheet("scores")
 
 def welcome_page():
     '''
-    welcome page
+    welcome message of the game
     '''
     print("Welcome to")
     print("######                                     #")                      
@@ -51,6 +51,9 @@ def welcome_page():
 
 
 def manual():
+    '''
+    the function prints rules of the game
+    '''
     print("1) Player and Casino receives two random cards from the deck]")
     print("")
     time.sleep(print_delay)
@@ -78,7 +81,8 @@ def manual():
 
 def start_game():
     '''
-    function which starts a game
+    This function starts interaction with a user.
+    User chooses if he wants to read a manual or start a game
     '''
     print("- "*34)
     time.sleep(print_delay)
@@ -97,7 +101,7 @@ def start_game():
 
 def newgame():
     '''
-    Set variables for the game
+    Function Sets varialbles to start a new round
     '''
     global unlimitted_deck
     unlimitted_deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
@@ -109,7 +113,7 @@ def newgame():
 
 def casino_gets_two_cards():
     '''
-    Function assign two random numbers from the deck to cassion array.
+    Function assigns two random numbers from the deck to Casino
     '''
 
     global casino_cards
@@ -120,7 +124,7 @@ def casino_gets_two_cards():
 
 def player_gets_two_cards():
     '''
-    Assign tow random numbers from unlimitted deck to player array
+    Function assigns tow random numbers from unlimitted deck to player array
     '''
     global player_cards
     player_cards.append(random.choice(unlimitted_deck))
@@ -130,7 +134,7 @@ def player_gets_two_cards():
 
 def casino_start_first_playing():
     '''
-        This action
+        This function estimates the result of the round after casino action.
     '''
     global casino_cards, casino_points, player_points
     if sum(casino_cards) == 22:
@@ -232,7 +236,7 @@ def casino_start_first_playing():
 
 def player_start_first_playing():
     '''
-    This action helps to player to make his first move and win or loss
+    This function estimates the result of the round after player action
     '''
     global player_cards, player_points, casino_points
     if sum(player_cards) == 21:
@@ -266,12 +270,8 @@ def player_start_first_playing():
 
     while not valid_entry:
         user_response_str = input("ENTER A NUMBER:\n ")
-        # print(user_response_str)
-        # print(type(user_response_str))
         if user_response_str.isnumeric():
             user_response = int(user_response_str)
-            # print(type(user_response))
-            # print(user_response)
             if user_response == 0 or user_response == 1:
                 valid_entry = True
             else:
@@ -286,7 +286,7 @@ def player_start_first_playing():
     while user_response == 1:
         logs_u.append_row([tstamp, f"Player gets an additonal card"])
         player_cards.append(random.choice(unlimitted_deck))
-        print(player_cards)
+        # print(player_cards)
         if sum(player_cards) == 21:
             time.sleep(print_delay)
             print("PLAYER SUM = 21. PLAYER WON!")
@@ -295,7 +295,6 @@ def player_start_first_playing():
             player_points = player_points + 1
             time.sleep(print_delay)
             print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
-            # score record
             scores_to_update.append_row([tstamp, 1, 0])
             logs_u.append_row([tstamp, "BJ player wins"])
             return player_points
@@ -307,7 +306,6 @@ def player_start_first_playing():
             casino_points = casino_points + 1
             time.sleep(print_delay)
             print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
-            # score record
             scores_to_update.append_row([tstamp, 0, 1])
             logs_u.append_row([tstamp, " Player Sum >21 casino wins"])
             return player_points
@@ -328,8 +326,6 @@ def player_start_first_playing():
 
         while not valid_entry:
             user_response_str = input("ENTER NUMBER:\n")
-            # print(user_response_str)
-            # print(type(user_response_str))
             if user_response_str.isnumeric():
                 user_response = int(user_response_str)
                 if user_response == 0 or user_response == 1:
@@ -350,6 +346,69 @@ def player_start_first_playing():
 
 
 def summary():
+    '''
+    This function create game summary.
+    Give to the user an option to see stats of the game
+    Allows t the user to start a new game
+    '''
+    global player_points, casino_points, game
+    time.sleep(print_delay)
+    print("After 10 rounds the score is ")
+    time.sleep(print_delay)
+    print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
+    if player_points > casino_points:
+        time.sleep(print_delay)
+        print("player won a game of 10 rounds")
+        logs_u.append_row([tstamp, "Player Won the entire game"])
+    elif player_points < casino_points:
+        time.sleep(print_delay)
+        print("Casino won a game of 10 rounds")
+        logs_u.append_row([tstamp, "Casino Won the entire game"])
+    else:
+        time.sleep(print_delay)
+        print("Draw!")
+        logs_u.append_row([tstamp, "Casino - Player Draw"])
+    time.sleep(print_delay)
+    do_stats = input("TO PLAY AGAIN PRESS  ANY KEY TO SEE GAME STATS PRESS 0:\n")
+    if do_stats == "0":
+        print("the stats are")
+        input("press any key to continue")
+    player_points = 0
+    casino_points = 0
+    game = 1
+    print(game)
+
+def main():
+    '''
+    main function. Run all other function to run a game
+    '''
+    global player_points, casino_points, print_delay, game
+    logs_u.append_row([tstamp, "The games starts"])
+    player_points = 0
+    casino_points = 0
+    game = 1
+    print_delay = 1
+    logs_u.append_row([tstamp, f"Set variables for the game"])
+    welcome_page()
+    while True:
+        start_game()
+        while game < 3:
+            logs_u.append_row([tstamp, "New Round starts"])
+            print("NEW ROUND STARTS")
+            print(f"ROUND {game}")
+            time.sleep(print_delay)
+            newgame()
+            casino_gets_two_cards()
+            player_gets_two_cards()
+            player_start_first_playing()
+            print("- "*34)
+            time.sleep(print_delay)
+            print("- "*34)
+            time.sleep(print_delay)
+            game = game+1
+        summary()
+            #global player_points, casino_points
+        '''
         time.sleep(print_delay)
         print("After 10 rounds the score is ")
         time.sleep(print_delay)
@@ -367,40 +426,15 @@ def summary():
             print("Draw!")
             logs_u.append_row([tstamp, "Casino - Player Draw"])
         time.sleep(print_delay)
-        input("TO PLAY BLACK JACK AGAIN PRESS  ANY KEY:\n")
+        do_stats = input("TO PLAY AGAIN PRESS  ANY KEY TO SEE GAME STATS PRESS 0:\n")
+        if do_stats == "0":
+            print("the stats are")
+            input("press any key to continue")
         player_points = 0
         casino_points = 0
         game = 1
-
-def main():
-    '''
-    main function. Run all other function to run a game
-    '''
-    global player_points, casino_points, print_delay, game
-    logs_u.append_row([tstamp, "The games starts"])
-    player_points = 0
-    casino_points = 0
-    game = 1
-    print_delay = 1
-    logs_u.append_row([tstamp, f"Set variables for the game"])
-    welcome_page()
-    while True:
-        start_game()
-        while game < 11:
-            logs_u.append_row([tstamp, "New Round starts"])
-            print("NEW ROUND STARTS")
-            print(f"ROUND {game}")
-            time.sleep(print_delay)
-            newgame()
-            casino_gets_two_cards()
-            player_gets_two_cards()
-            player_start_first_playing()
-            print("- "*34)
-            time.sleep(print_delay)
-            print("- "*34)
-            time.sleep(print_delay)
-            game = game+1
-        summary()
+        print(game)
+        '''
 
 
 main()
