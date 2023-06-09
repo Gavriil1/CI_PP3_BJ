@@ -36,6 +36,17 @@ scores = SHEET.worksheet('scores')
 scores_to_update = SHEET.worksheet("scores")
 print('ooooooooooooooooooooooooooooooo')
 
+def welcome_page():
+    '''
+    welcome page
+    '''
+    print("######                                       #")                      
+    print("#     # #        ##    ####  #    #          #   ##    ####  #    # ")
+    print("#     # #       #  #  #    # #   #           #  #  #  #    # #   # ") 
+    print("######  #      #    # #      ####            # #    # #      ####   ")
+    print("#     # #      ###### #      #  #      #     # ###### #      #  #   ")
+    print("#     # #      #    # #    # #   #     #     # #    # #    # #   #  ")
+    print("######  ###### #    #  ####  #    #     #####  #    #  ####  #    # ")
 
 def newgame():
     '''
@@ -299,10 +310,11 @@ def main():
     game = 1
     print_delay = 1
     logs_u.append_row([tstamp, f"Set variables for the game"])
+    welcome_page()
     while True:
-        print("-------------------------------------------------")
+        print("- "*34)
         time.sleep(print_delay)
-        print("-------------------------------------------------")
+        print("- "*34)
         time.sleep(print_delay)
         print("Hello Player. Welcome to BlackJac")
         time.sleep(print_delay)
