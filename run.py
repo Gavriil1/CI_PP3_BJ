@@ -345,6 +345,7 @@ def player_start_first_playing():
         casino_start_first_playing()
 
 
+
 def summary():
     '''
     This function create game summary.
@@ -407,34 +408,41 @@ def main():
             time.sleep(print_delay)
             game = game+1
         summary()
-            #global player_points, casino_points
-        '''
-        time.sleep(print_delay)
-        print("After 10 rounds the score is ")
-        time.sleep(print_delay)
-        print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
-        if player_points > casino_points:
-            time.sleep(print_delay)
-            print("player won a game of 10 rounds")
-            logs_u.append_row([tstamp, "Player Won the entire game"])
-        elif player_points < casino_points:
-            time.sleep(print_delay)
-            print("Casino won a game of 10 rounds")
-            logs_u.append_row([tstamp, "Casino Won the entire game"])
-        else:
-            time.sleep(print_delay)
-            print("Draw!")
-            logs_u.append_row([tstamp, "Casino - Player Draw"])
-        time.sleep(print_delay)
-        do_stats = input("TO PLAY AGAIN PRESS  ANY KEY TO SEE GAME STATS PRESS 0:\n")
-        if do_stats == "0":
-            print("the stats are")
-            input("press any key to continue")
-        player_points = 0
-        casino_points = 0
-        game = 1
-        print(game)
-        '''
-
 
 main()
+
+
+
+def get_last_5_entries_sales1():
+    """
+    Collects columns of data from sales worksheet, collecting
+    the last 5 entries for each sandwich and returns the data
+    as a list of lists.
+    """
+    global scores
+    player_point = scores.col_values(2)
+    casino_points = scores.col_values(3)
+    print(player_point)
+    print(casino_points)
+    player_point.pop(0)
+    casino_points.pop(0)
+    player_point = [int(x) for x in player_point]
+    casino_points = [int(x) for x in casino_points]
+    print(player_point)
+    print(casino_points)
+    print(sum(player_point)/len(player_point))
+    print(sum(casino_points)/len(casino_points))
+    player_percentage = round(sum(player_point)/len(player_point) * 100, 2)
+    casino_percentage = round(sum(casino_points)/len(casino_points)*100, 2)
+    print(player_percentage)
+    print(casino_percentage)
+    print(player_percentage + casino_percentage)
+    print(100 - player_percentage - casino_percentage)
+    drawpercentage = round(100 - player_percentage - casino_percentage, 2)
+    print("The propability player to win is :", player_percentage, "%")
+    print("The propability casino to win:", casino_percentage, "%")
+    print("The propability for a draw is", drawpercentage, "%")
+
+
+get_last_5_entries_sales1()
+    
