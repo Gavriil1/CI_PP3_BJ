@@ -344,6 +344,36 @@ def player_start_first_playing():
         print('CASINO STARTS PLAYING!')
         casino_start_first_playing()
 
+def stats():
+    """
+    Collects columns of data from sales worksheet, collecting
+    the last 5 entries for each sandwich and returns the data
+    as a list of lists.
+    """
+    global scores
+    #print(data)
+    player_point = scores.col_values(2)
+    casino_points = scores.col_values(3)
+    #print(player_point)
+    #print(casino_points)
+    player_point.pop(0)
+    casino_points.pop(0)
+    player_point = [int(x) for x in player_point]
+    casino_points = [int(x) for x in casino_points]
+    #print(player_point)
+    #print(casino_points)
+    #print(sum(player_point)/len(player_point))
+    #print(sum(casino_points)/len(casino_points))
+    player_percentage = round(sum(player_point)/len(player_point) * 100, 2)
+    casino_percentage = round(sum(casino_points)/len(casino_points)*100, 2)
+    #print(player_percentage)
+    #print(casino_percentage)
+    # print(player_percentage + casino_percentage)
+    # print(100 - player_percentage - casino_percentage)
+    drawpercentage = round(100 - player_percentage - casino_percentage, 2)
+    print("The propability player to win is :", player_percentage, "%")
+    print("The propability casino to win:", casino_percentage, "%")
+    print("The propability for a draw is", drawpercentage, "%")
 
 
 def summary():
@@ -372,8 +402,8 @@ def summary():
     time.sleep(print_delay)
     do_stats = input("TO PLAY AGAIN PRESS  ANY KEY TO SEE GAME STATS PRESS 0:\n")
     if do_stats == "0":
-        print("the stats are")
-        input("press any key to continue")
+        print("The stats are")
+        stats()
     player_points = 0
     casino_points = 0
     game = 1
@@ -413,36 +443,7 @@ main()
 
 
 
-def get_last_5_entries_sales1():
-    """
-    Collects columns of data from sales worksheet, collecting
-    the last 5 entries for each sandwich and returns the data
-    as a list of lists.
-    """
-    global scores
-    player_point = scores.col_values(2)
-    casino_points = scores.col_values(3)
-    print(player_point)
-    print(casino_points)
-    player_point.pop(0)
-    casino_points.pop(0)
-    player_point = [int(x) for x in player_point]
-    casino_points = [int(x) for x in casino_points]
-    print(player_point)
-    print(casino_points)
-    print(sum(player_point)/len(player_point))
-    print(sum(casino_points)/len(casino_points))
-    player_percentage = round(sum(player_point)/len(player_point) * 100, 2)
-    casino_percentage = round(sum(casino_points)/len(casino_points)*100, 2)
-    print(player_percentage)
-    print(casino_percentage)
-    print(player_percentage + casino_percentage)
-    print(100 - player_percentage - casino_percentage)
-    drawpercentage = round(100 - player_percentage - casino_percentage, 2)
-    print("The propability player to win is :", player_percentage, "%")
-    print("The propability casino to win:", casino_percentage, "%")
-    print("The propability for a draw is", drawpercentage, "%")
 
 
-get_last_5_entries_sales1()
+
     
