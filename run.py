@@ -9,7 +9,9 @@ import random
 import time
 import gspread
 from google.oauth2.service_account import Credentials
-
+import colorama
+from colorama import Fore, Back, Style
+colorama.init(autoreset = True)
 
 
 SCOPE = [
@@ -40,14 +42,15 @@ def welcome_page():
     '''
     welcome message of the game
     '''
-    print("Welcome to")
-    print("######                                     #")                      
-    print("#     # #        ##    ####  #    #        #   ##    ####  #    # ")
-    print("#     # #       #  #  #    # #   #         #  #  #  #    # #   # ") 
-    print("######  #      #    # #      ####          # #    # #      ####   ")
-    print("#     # #      ###### #      #  #      #   # ###### #      #  #   ")
-    print("#     # #      #    # #    # #   #     #   # #    # #    # #   #  ")
-    print("######  ###### #    #  ####  #    #     ###  #    #  ####  #    # ")
+    Y = Fore.YELLOW
+    print(Fore.GREEN + "Welcome to: ")
+    print(Y + "####                                   #")                      
+    print(Y + "#   # #      ##    ####  #    #        #   ##    ####  #    # ")
+    print(Y + "#   # #     #  #  #    # #   #         #  #  #  #    # #   # ") 
+    print(Y + "####  #    #    # #      ####          # #    # #      ####   ")
+    print(Y + "#   # #    ###### #      #  #      #   # ###### #      #  #   ")
+    print(Y + "#   # #    #    # #    # #   #     #   # #    # #    # #   #  ")
+    print(Y + "####  #### #    #  ####  #    #     ###  #    #  ####  #    # ")
 
 
 def manual():
@@ -82,21 +85,22 @@ def manual():
 def start_game():
     '''
     This function starts interaction with a user.
+    It informs the user about number of rounds.
+    Informes him that results are going to be saved to excel.
     User chooses if he wants to read a manual or start a game
     '''
     print("- "*34)
     time.sleep(print_delay)
     print("- "*34)
     time.sleep(print_delay)
-    print("Hello Player. Welcome to BlackJac")
+    print(Fore.GREEN + "Hello Player. Welcome to BlackJac")
     time.sleep(print_delay)
-    print("The game has 10 rounds")
+    print(Fore.BLUE + "The game has 10 rounds")
     time.sleep(print_delay)
-    print("Result of each round are saved in Excel")
+    print(Fore.MAGENTA + "Result of each round are saved in Excel")
     time.sleep(print_delay)
-    print("Press 1 to start the game.")
-    show_manual = input("To read game rules please press 0, to play a game please press any other key\n")
-    if show_manual == "0":
+    show_man = input("Ppress 0 to read game manual. Press 1 to start a game\n")
+    if show_man == "0":
         manual()
 
 def newgame():
@@ -134,7 +138,10 @@ def player_gets_two_cards():
 
 def casino_start_first_playing():
     '''
-        This function estimates the result of the round after casino action.
+        When player rejcects to take a new card this function starts.
+        It checkes if "casino sum" > "player sum" if it trues casino wins.
+        Otherwise, we check if "casino sum" <17. and if this a case, casino 
+        takes a new card and do the same estimation again.
     '''
     global casino_cards, casino_points, player_points
     if sum(casino_cards) == 22:
@@ -236,12 +243,15 @@ def casino_start_first_playing():
 
 def player_start_first_playing():
     '''
-    This function estimates the result of the round after player action
+    The function show to the player his card and 1 card of the casino.
+    Player decides if he wants to take a new card. If he wants to take 
+    a new card , a new card assigned to him. 
+    If player rejects to take a card, casino starts playing
     '''
     global player_cards, player_points, casino_points
     if sum(player_cards) == 21:
         time.sleep(print_delay)
-        print("PLAYER SUM 21. BLACK JACK! PLAYER WINDS!")
+        print("PLAYER SUM 21. BLACK JACK! PLAYER WINS!")
         player_points = player_points + 1
         time.sleep(print_delay)
         print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
@@ -299,6 +309,7 @@ def player_start_first_playing():
             logs_u.append_row([tstamp, "BJ player wins"])
             return player_points
         if sum(player_cards) > 21:
+            print(player_cards)
             time.sleep(print_delay)
             print("PLAYER SUM > 21. CASINO WON")
             time.sleep(print_delay)
@@ -342,6 +353,8 @@ def player_start_first_playing():
         logs_u.append_row([tstamp, "Player pressed 0. Casiono starts"])
         time.sleep(print_delay)
         print('CASINO STARTS PLAYING!')
+        print('CASINO cards are : ')
+        print(casino_cards)
         casino_start_first_playing()
 
 def stats():
