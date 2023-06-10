@@ -38,18 +38,13 @@ logs_u.append_row([tstamp, "This is my timestamp"])
 # Player Score variables
 scores = SHEET.worksheet('scores')
 scores_to_update = SHEET.worksheet("scores")
+player_points = 0
+casino_points = 1
 
-def welcome_page():
-    '''
-    welcome message of the game
-    '''
-    print(Fore.GREEN + "Welcome to: ")
-    print(Fore.YELLOW + "######                                     #")                      
-    print(Fore.YELLOW + "#     # #        ##    ####  #    #        #   ##    ####  #    # ")
-    print(Fore.YELLOW + "#     # #       #  #  #    # #   #         #  #  #  #    # #   # ") 
-    print(Fore.YELLOW + "######  #      #    # #      ####          # #    # #      ####   ")
-    print(Fore.YELLOW + "#     # #      ###### #      #  #      #   # ###### #      #  #   ")
-    print(Fore.YELLOW + "#     # #      #    # #    # #   #     #   # #    # #    # #   #  ")
-    print(Fore.YELLOW + "######  ###### #    #  ####  #    #     ###  #    #  ####  #    # ")
-
-welcome_page()
+print(Fore.BLACK + "Hello world")
+print(Fore.RED + "Hello world")
+print(Fore.GREEN + "Hello world")
+print(Fore.YELLOW + "Hello world")
+print(Fore.MAGENTA + "Hello world")
+print(Fore.CYAN + "Hello world")
+print(Fore.WHITE + "Hello world")

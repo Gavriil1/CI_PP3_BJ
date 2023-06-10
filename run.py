@@ -147,13 +147,13 @@ def casino_start_first_playing():
     if sum(casino_cards) == 22:
         casino_cards[1] = 1
         time.sleep(print_delay)
-        print("1 Casino has to Aces. First counts 11 second 1")
+        print(Fore.BLUE + "Casino has two Aces. First counts 11 second 1")
     if sum(casino_cards) == 21:
         time.sleep(print_delay)
-        print("CASINO WINS! BLACK JACK!")
+        print(Fore.RED + "CASINO WINS! BLACK JACK!")
         casino_points = casino_points + 1
         time.sleep(print_delay)
-        print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
+        print(Fore.RED + f"PLAYER:{player_points} CASINO:{casino_points}")
         # logfile
         logs_u.append_row([tstamp, "Casino wins Bj"])
         # score record
@@ -166,11 +166,11 @@ def casino_start_first_playing():
         time.sleep(print_delay)
         print(f"CASINOSUM: {sum(casino_cards)} PLAYER SUM {sum(player_cards)}")
         time.sleep(print_delay)
-        print("CASINO SUM > PLAYER SUM. CASINO WINS!")
+        print(Fore.MAGENTA + "CASINO SUM > PLAYER SUM. CASINO WINS!")
         time.sleep(print_delay)
         casino_points = casino_points + 1
         time.sleep(print_delay)
-        print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
+        print(Fore.RED + f"PLAYER:{player_points} CASINO:{casino_points}")
         # score record
         scores_to_update.append_row([tstamp, 0, 1])
         logs_u.append_row([tstamp, "Casino Wins. Casino Sum > Player Sum"])
@@ -189,7 +189,7 @@ def casino_start_first_playing():
             scores_to_update.append_row([tstamp, 1, 0])
             logs_u.append_row([tstamp, "Casino SUm > 21 player wins"])
             time.sleep(print_delay)
-            print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
+            print(Fore.RED + f"PLAYER:{player_points} CASINO:{casino_points}")
             return
         if sum(casino_cards) == 21:
             time.sleep(print_delay)
@@ -199,27 +199,27 @@ def casino_start_first_playing():
             scores_to_update.append_row([tstamp, 0, 1])
             logs_u.append_row([tstamp, "Casino wins. BJ!"])
             time.sleep(print_delay)
-            print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
+            print(Fore.RED + f"PLAYER:{player_points} CASINO:{casino_points}")
             return
         if sum(casino_cards) > sum(player_cards):
             time.sleep(print_delay)
-            print("CASINO SUM > PLAYER SUM. CASINO WINS!")
+            print(Fore.MAGENTA + "CASINO SUM > PLAYER SUM. CASINO WINS!")
             casino_points = casino_points + 1
             scores_to_update.append_row([tstamp, 0, 1])
             logs_u.append_row([tstamp, "casinosum>playersum casino wins"])
             time.sleep(print_delay)
-            print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
+            print(Fore.RED + f"PLAYER:{player_points} CASINO:{casino_points}")
             return
 
     if sum(casino_cards) > sum(player_cards):
         time.sleep(print_delay)
-        print("CASINO SUM > PLAYER SUM. CASINO WINS!")
+        print(Fore.MAGENTA + "CASINO SUM > PLAYER SUM. CASINO WINS!")
         casino_points = casino_points + 1
         # score record
         scores_to_update.append_row([tstamp, 0, 1])
         logs_u.append_row([tstamp, "Casino wins. casinosum>playersum"])
         time.sleep(print_delay)
-        print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
+        print(Fore.RED + f"PLAYER:{player_points} CASINO:{casino_points}")
         return
 
     if sum(casino_cards) < sum(player_cards):
@@ -229,7 +229,7 @@ def casino_start_first_playing():
         time.sleep(print_delay)
         scores_to_update.append_row([tstamp, 1, 0])
         logs_u.append_row([tstamp, "player wins playersum>casinosum"])
-        print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
+        print(Fore.RED + f"PLAYER:{player_points} CASINO:{casino_points}")
         return
 
     if sum(casino_cards) == sum(player_cards):
@@ -237,7 +237,7 @@ def casino_start_first_playing():
         print("CASINO SUM = PLAYER SUM. DRAW!")
         logs_u.append_row([tstamp, "Draw"])
         time.sleep(print_delay)
-        print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
+        print(Fore.RED + f"PLAYER:{player_points} CASINO:{casino_points}")
         return
 
 
@@ -251,10 +251,10 @@ def player_start_first_playing():
     global player_cards, player_points, casino_points
     if sum(player_cards) == 21:
         time.sleep(print_delay)
-        print("PLAYER SUM 21. BLACK JACK! PLAYER WINS!")
+        print(Fore.GREEN + "PLAYER SUM 21. BLACK JACK! PLAYER WINS!")
         player_points = player_points + 1
         time.sleep(print_delay)
-        print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
+        print(Fore.RED + f"PLAYER:{player_points} CASINO:{casino_points}")
         # score record
         scores_to_update.append_row([tstamp, 1, 0])
         logs_u.append_row([tstamp, "Player won a game because of BJ"])
@@ -263,34 +263,34 @@ def player_start_first_playing():
         player_cards[1] = 1
         time.sleep(print_delay)
         logs_u.append_row([tstamp, "Player has two Aces.Changing second to 1"])
-        print("PLAYER HAS TWO ACES. SECOND COUNTS AS  1")
-    print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
+        print(Fore.YELLOW + "PLAYER HAS TWO ACES. SECOND COUNTS AS  1")
+    print(Fore.RED + f"PLAYER:{player_points} CASINO:{casino_points}")
     time.sleep(print_delay)
-    print(f"YOU HAVE {len(player_cards)} cards. The cards VALUES ARE:")
+    print(Fore.CYAN + f"YOU HAVE {len(player_cards)} CARDS. THE CARDS ARE:")
     for card in player_cards:
-        print(f"    {card}")
+        print(Fore.CYAN + f"    {card}")
     time.sleep(print_delay)
-    print(f"PLAYER SUM {sum(player_cards)}")
+    print(Fore.GREEN + f"PLAYER SUM {sum(player_cards)}")
     time.sleep(print_delay)
-    print(f"CASINO FIRST CARD {casino_cards[0]}")
+    print(Fore.MAGENTA  + f"CASINO FIRST CARD IS {casino_cards[0]}")
     time.sleep(print_delay)
     print("DO YOU WANT ADDITIONAL CARD? PRESS '1' FOR YES, '0' FOR No")
 
     valid_entry = False
 
     while not valid_entry:
-        user_response_str = input("ENTER A NUMBER:\n ")
+        user_response_str = input(Fore.RED + "ENTER A NUMBER:\n ")
         if user_response_str.isnumeric():
             user_response = int(user_response_str)
             if user_response == 0 or user_response == 1:
                 valid_entry = True
             else:
                 time.sleep(print_delay)
-                print("PLEASE ENTER VALID ENTRY '0' OR '1'")
+                print(Fore.RED + "PLEASE ENTER VALID ENTRY '0' OR '1'")
 
         else:
             time.sleep(print_delay)
-            print("PLEASE ENTER VALID ENTRY  '0' or '1'")
+            print(Fore.RED + "PLEASE ENTER VALID ENTRY  '0' or '1'")
 
     print(user_response)
     while user_response == 1:
@@ -304,7 +304,7 @@ def player_start_first_playing():
             print("BLACK JACK !")
             player_points = player_points + 1
             time.sleep(print_delay)
-            print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
+            print(Fore.RED + f"PLAYER:{player_points} CASINO:{casino_points}")
             scores_to_update.append_row([tstamp, 1, 0])
             logs_u.append_row([tstamp, "BJ player wins"])
             return player_points
@@ -316,7 +316,7 @@ def player_start_first_playing():
             print(f"PLAYER SUM {sum(player_cards)}")
             casino_points = casino_points + 1
             time.sleep(print_delay)
-            print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
+            print(Fore.RED + f"PLAYER:{player_points} CASINO:{casino_points}")
             scores_to_update.append_row([tstamp, 0, 1])
             logs_u.append_row([tstamp, " Player Sum >21 casino wins"])
             return player_points
@@ -399,7 +399,7 @@ def summary():
     time.sleep(print_delay)
     print("After 10 rounds the score is ")
     time.sleep(print_delay)
-    print(f"SCORE PLAYER: {player_points} CASINO: {casino_points}")
+    print(Fore.MAGENTA + Fore.RED + f"PLAYER:{player_points} CASINO:{casino_points}")
     if player_points > casino_points:
         time.sleep(print_delay)
         print("player won a game of 10 rounds")
@@ -422,6 +422,7 @@ def summary():
     game = 1
     print(game)
 
+
 def main():
     '''
     main function. Run all other function to run a game
@@ -438,8 +439,8 @@ def main():
         start_game()
         while game < 3:
             logs_u.append_row([tstamp, "New Round starts"])
-            print("NEW ROUND STARTS")
-            print(f"ROUND {game}")
+            print(Fore.CYAN + "NEW ROUND STARTS")
+            print(Fore.MAGENTA + f"ROUND {game}")
             time.sleep(print_delay)
             newgame()
             casino_gets_two_cards()
@@ -451,6 +452,7 @@ def main():
             time.sleep(print_delay)
             game = game+1
         summary()
+
 
 main()
 
