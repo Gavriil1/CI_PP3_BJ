@@ -4,7 +4,7 @@
 
 💻 [Visit live website](https://black-j.herokuapp.com/)
 
-![Mockup image](docs/screenshot-home.JPG)
+![Mockup image](docs/amIresponsive/amiresponsive.png)
 
 ## About
 
@@ -77,12 +77,12 @@ The target audience of the game is  people 18+, because it is it a casino game.
 <details><summary>Click here to view instructions</summary>
 
 #### Main Menu
-On the main menu, users are presented with an ASCII art rendering of the name 'Connect 4'. Below the welcome graphic there are a couple of options for user to select from.
-Operation: Input a numeric value and press enter key.
-1. View game rules
-2. Play game
+The main menu showcases an ASCII art representation of the title 'Black Jack'. Beneath the welcoming graphic, users are given two choices:
 
-At any point of the game, if the user inputs a number which do not correspond to the available option then they will be prompt to try again.
+1. Access the game rules.
+2. Engage in gameplay.
+
+To access the game rules, users are required to input "0". For gameplay, any other key must be pressed.
 
 #### Game rules
 
