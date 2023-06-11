@@ -189,7 +189,7 @@ If the user press 0 he will see an output in the following format:
 
 ### Flowchart
 
-The following flowchart summarises the structure and logic of the application.
+The provided flowchart presents a concise overview of the application's structure and logic.
 
 <details><summary>Flowchart</summary>
 <img src="docs/Connect4-flowchart.jpg">
@@ -199,19 +199,18 @@ The following flowchart summarises the structure and logic of the application.
 
 ### Languages
 
-- [Python](https://www.python.org/) programming language for the logic of the program
+- [Python](https://www.python.org/)
 
 ### Frameworks & Tools
 
-- [Diagrams.net](https://app.diagrams.net/) was used to draw program flowchart
-- [Font Awesome](https://fontawesome.com/) - icons from Font Awesome were used in the footer below the program terminal
-- [Git](https://git-scm.com/) was used for version control within VSCode to push the code to GitHub
-- [GitHub](https://github.com/) was used as a remote repository to store project code
-- [Google Cloud Platform](https://cloud.google.com/cloud-console/) was used to manage access and permissions to the Google Services such as Google auth, sheets etc.
-- [Google Sheets](https://www.google.co.uk/sheets/about/) were used to store players details
-- [PEP8](http://pep8online.com/) was used to check my code against Python conventions
-- [Render Platform](https://https://render.com/) was used to deploy the project into live environment
-- [Visual Studio Code (VSCode)](https://code.visualstudio.com/)
+- [Diagrams.net](https://app.diagrams.net/) was used for flowchart creation.
+- [Git](https://git-scm.com/) was used for version control to push changes from gitpod to github
+- [GitHub](https://github.com/) was used to store a code.
+- [Google Cloud Platform](https://cloud.google.com/cloud-console/) It was utilized to handle access and permissions for various Google Services, including Google authentication, Google Sheets, and others.
+- [Google Sheets](https://docs.google.com/spreadsheets) were used to store game logs and game's statistics
+- [PEP8](http://pep8online.com/) was used as a python code checker.
+- [heroku Platform](https://www.heroku.com//) was user to deploy a game to live website.
+- [Gitpod](https://www.gitpod.io/)
 VSCode was used to write the project code using Code Institute template
 
 ### Libraries
