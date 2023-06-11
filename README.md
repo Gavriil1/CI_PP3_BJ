@@ -1,8 +1,8 @@
-# CONNECT 4 GAME <img src="https://cdn-icons-png.flaticon.com/512/1707/1707251.png" style="width: 40px;height:40px;">
+# BLACK JACK 
 
-**Developer: Aleksandra Haniok**
+**Developer: Gabriel S**
 
-💻 [Visit live website](https://ci-pp3-connect4.onrender.com/)
+💻 [Visit live website](https://black-j.herokuapp.com/)
 
 ![Mockup image](docs/screenshot-home.JPG)
 
