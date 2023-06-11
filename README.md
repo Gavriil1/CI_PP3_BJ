@@ -168,23 +168,20 @@ If the user press 0 he will see an output in the following format:
 
 ### Users
 
-1. I want to have clear options to select in the main menu
-2. I want to be able to read the rules of the game
-3. I want to personalise the game and enter my name
-4. I want to be able to log-in if I return to the game
-5. I want to receive a real time feedback throughout the game
-6. I want to get a feedback when I win the game
-7. I want to be able to play multiple games when I'm logged in
-8. I want a random selection of the player to start a new game
-9. I want to see how many games I've won so far
+1. I desire distinct choices to choose from on the main menu.
+2. I would like the ability to access and peruse the game rules.
+3. I expect to receive continuous, real-time feedback throughout the game.
+4. I anticipate receiving feedback when a round concludes.
+5. I expect to receive feedback when the game concludes.
+6. I would like to be able to see my probability of winning or losing.
+7. I want to visually observe the new card I receive when dealt a new card.
+8. I want to visually observe the new card the casino receives when they draw a new card.
 
 ### Site Owner
+9. I desire a user-friendly menu interface that facilitates easy option selection.
+10. I want to provide feedback to the user when they make incorrect inputs or when deciding whether to draw a new card or not.
+11. I aim for the game text to be easily readable and comprehensible for the user.
 
-10. I want users to have a positive experience whilst playing the game
-11. I want users to easily select options from the menu
-12. I want user names and emails to be saved to Google Spreadsheet
-13. I want the user to get feedback in case of wrong input
-14. I want data entry to be validated, to guide the user on how to correctly format the input
 
 [Back to Table Of Contents](#table-of-contents)
 
