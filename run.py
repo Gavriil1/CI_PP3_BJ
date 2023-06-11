@@ -164,8 +164,6 @@ def casino_start_first_playing():
 
     if sum(casino_cards) > sum(player_cards):
         time.sleep(print_delay)
-        print(f"CASINOSUM: {sum(casino_cards)} PLAYER SUM {sum(player_cards)}")
-        time.sleep(print_delay)
         print(Fore.MAGENTA + "CASINO SUM > PLAYER SUM. CASINO WINS!")
         time.sleep(print_delay)
         casino_points = casino_points + 1
@@ -178,12 +176,12 @@ def casino_start_first_playing():
 
     while sum(casino_cards) < 17:
         time.sleep(print_delay)
-        print("CASINO SUM < 17. CASINO TAKE A  NEW CARD!")
+        print(Fore.YELLOW + "CASINO SUM < 17. CASINO TAKE A  NEW CARD!")
         casino_cards.append(random.choice(unlimitted_deck))
         print(casino_cards)
         if sum(casino_cards) > 21:
             time.sleep(print_delay)
-            print("CASINO SUM > 21. PLAYER WINS!")
+            print(Fore.GREEN + "CASINO SUM > 21. PLAYER WINS!")
             player_points = player_points + 1
             # score record
             scores_to_update.append_row([tstamp, 1, 0])
@@ -193,7 +191,7 @@ def casino_start_first_playing():
             return
         if sum(casino_cards) == 21:
             time.sleep(print_delay)
-            print("CASINO BLACK JACK ! CASINO WINS!")
+            print(Fore.CYAN + "CASINO BLACK JACK ! CASINO WINS!")
             casino_points = casino_points + 1
             # score record:
             scores_to_update.append_row([tstamp, 0, 1])
@@ -224,7 +222,7 @@ def casino_start_first_playing():
 
     if sum(casino_cards) < sum(player_cards):
         time.sleep(print_delay)
-        print("CASINO SUM < PLAYER SUM. PLAYER WINS!")
+        print(Fore.CYAN + "CASINO SUM < PLAYER SUM. PLAYER WINS!")
         player_points = player_points + 1
         time.sleep(print_delay)
         scores_to_update.append_row([tstamp, 1, 0])
@@ -234,7 +232,7 @@ def casino_start_first_playing():
 
     if sum(casino_cards) == sum(player_cards):
         time.sleep(print_delay)
-        print("CASINO SUM = PLAYER SUM. DRAW!")
+        print(Fore.CYAN + "CASINO SUM = PLAYER SUM. DRAW!")
         logs_u.append_row([tstamp, "Draw"])
         time.sleep(print_delay)
         print(Fore.RED + f"PLAYER:{player_points} CASINO:{casino_points}")
@@ -292,7 +290,7 @@ def player_start_first_playing():
             time.sleep(print_delay)
             print(Fore.RED + "PLEASE ENTER VALID ENTRY  '0' or '1'")
 
-    print(user_response)
+
     while user_response == 1:
         logs_u.append_row([tstamp, f"Player gets an additonal card"])
         player_cards.append(random.choice(unlimitted_deck))
@@ -352,8 +350,8 @@ def player_start_first_playing():
     if user_response == 0:
         logs_u.append_row([tstamp, "Player pressed 0. Casiono starts"])
         time.sleep(print_delay)
-        print('CASINO STARTS PLAYING!')
-        print('CASINO cards are : ')
+        print(Fore.YELLOW + 'CASINO STARTS PLAYING!')
+        print(Fore.CYAN + "CASINO'S CARDS ARE: ")
         print(casino_cards)
         casino_start_first_playing()
 
@@ -364,29 +362,19 @@ def stats():
     as a list of lists.
     """
     global scores
-    #print(data)
     player_point = scores.col_values(2)
     casino_points = scores.col_values(3)
-    #print(player_point)
-    #print(casino_points)
     player_point.pop(0)
     casino_points.pop(0)
     player_point = [int(x) for x in player_point]
     casino_points = [int(x) for x in casino_points]
-    #print(player_point)
-    #print(casino_points)
-    #print(sum(player_point)/len(player_point))
-    #print(sum(casino_points)/len(casino_points))
     player_percentage = round(sum(player_point)/len(player_point) * 100, 2)
     casino_percentage = round(sum(casino_points)/len(casino_points)*100, 2)
-    #print(player_percentage)
-    #print(casino_percentage)
-    # print(player_percentage + casino_percentage)
-    # print(100 - player_percentage - casino_percentage)
     drawpercentage = round(100 - player_percentage - casino_percentage, 2)
-    print("The propability player to win is :", player_percentage, "%")
-    print("The propability casino to win:", casino_percentage, "%")
-    print("The propability for a draw is", drawpercentage, "%")
+    print(Fore.GREEN + "The stats are: ")
+    print(Fore.GREEN + f"PLAYER'S PROPABILITY TO WIN :{player_percentage}%")
+    print(Fore.GREEN + f"CASINO'S PROPABILITY TO WIN:{casino_percentage}%")
+    print(Fore.GREEN + f"THE PROBABILITY FOR A DRAW IS: {drawpercentage}%")
 
 
 def summary():
@@ -397,25 +385,24 @@ def summary():
     '''
     global player_points, casino_points, game
     time.sleep(print_delay)
-    print("After 10 rounds the score is ")
+    print(Fore.YELLOW + "After 10 rounds the score is ")
     time.sleep(print_delay)
-    print(Fore.MAGENTA + Fore.RED + f"PLAYER:{player_points} CASINO:{casino_points}")
+    print(Fore.MAGENTA + f"PLAYER:{player_points} CASINO:{casino_points}")
     if player_points > casino_points:
         time.sleep(print_delay)
-        print("player won a game of 10 rounds")
+        print(Fore.GREEN + "Hello world""player won a game of 10 rounds")
         logs_u.append_row([tstamp, "Player Won the entire game"])
     elif player_points < casino_points:
         time.sleep(print_delay)
-        print("Casino won a game of 10 rounds")
+        print(Fore.GREEN + "Hello world""Casino won a game of 10 rounds")
         logs_u.append_row([tstamp, "Casino Won the entire game"])
     else:
         time.sleep(print_delay)
-        print("Draw!")
+        print(Fore.GREEN + "Draw!")
         logs_u.append_row([tstamp, "Casino - Player Draw"])
     time.sleep(print_delay)
-    do_stats = input("TO PLAY AGAIN PRESS  ANY KEY TO SEE GAME STATS PRESS 0:\n")
+    do_stats = input("PRESS ANY KEY TO PLAY. PRESS 0 TO SEE GAME STATS:\n")
     if do_stats == "0":
-        print("The stats are")
         stats()
     player_points = 0
     casino_points = 0
