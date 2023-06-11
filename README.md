@@ -98,41 +98,17 @@ Rules of the game are:
     7) If player do not want to take additional card, casino check if Casino SUM > Player SUM and if Casino SUM 17. If it is the case, casino takes additional card.  If the above statement is not true, casino does not take any additional card.
 
 #### Play
-With the Play Game option, users are asked if they have played the game before or not.
-Operation: Input a numeric value and press enter key. 
-The extra available option is to press 'y' key for 'yes' and 'n' for 'No'.
-1. Yes
-2. No
 
-#### Log-in
-When selecting option 1, users are asked to input their email addresses they used in the previous game, starting with the Player 1.
+When the user click "RUN Program"
+He is welcomed to the game. The game informs him that he is going to play a game of 10 rounds. Website informs him that results of the game will be saved to Excel.
 
-The email goes through a validation process. If the user inputs an email that has not been registered they have an option to either try another email or create a new user.
-Operation: Input a numeric value and press enter key.
-1. Try another email
-2. Create a new player
+After the user has an option to press 0 to see game manual,  or to press any other key to start a game.
 
-User can try to input their email address until it matches the one already registered. If it does, then the greeting message with their name will be displayed.
-If they forgot their email address they can create a new players by selecting the second option.
+When the ame starts the user receives 2 cards and see both of them. Casino also receives two cards but player can see only 1 of them.
 
-Same option follow for Player2.
+After user has an option to take a new card. If the user does not take card 
+casino starts taking new card.
 
-#### New players registration (sign-up)
-This option is available from the play option menu and during the existing users log-in.
-Here you can sign up to create a new user.
-
-Firstly, the Player1 is asked for their name follow by the email address. Both values go through the validation.
-
-Username has to be between 2-12 characters long and contain only A-Z. It can already exist in the database.
-Email: has to be a valid email containing exactly one @-sign from an existing domain. It must not exist in the database.
-
-Same option follow for Player2.
-
-If the registration is selected as part of the log-in option (Create a new player), then the relevant player will need to input their name and email address and once validated, type the email again for log in.
-
-#### Users greeting
-
-Once both users have been logged in, the program will display a greeting message with both names and start the game.
 
 #### Game
 
@@ -156,16 +132,33 @@ Players have 4 different options to choose from:
 Operation: Input a numeric value and press enter key.
 
 #### Play again
-By selecting this option a new game starts for the same players.
+At the end of the game the user has an option to play a game again.
+
+Here is an output the user is going to see:
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+After 10 rounds the score is 
+PLAYER:2 CASINO:0
+Hello worldplayer won a game of 10 rounds
+PRESS ANY KEY TO PLAY. PRESS 0 TO SEE GAME STATS:
 
 #### Go to main menu
-Brings players to the main menu of the program.
+At the end of the game the user haas an option to restart the game.
+To restart it he need to press any key exepct "0" After that the user
+see game's default menue.
 
 #### See your statistics
-Display number of games won so far by each logged player.
+At the end of the game the user has an option to see statistics of the game.
 
-#### Quit game
-With the guit game option, the user exits the program with a goodbye message.
+He will see a message: 
+    "PRESS ANY KEY TO PLAY. PRESS 0 TO SEE GAME STATS"
+If the user press 0 he will see an output in the following format:
+    The stats are: 
+    PLAYER'S PROPABILITY TO WIN :40.0%
+    CASINO'S PROPABILITY TO WIN:58.75%
+    THE PROBABILITY FOR A DRAW IS: 1.25%
+
 
 </details>
 
