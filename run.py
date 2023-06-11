@@ -5,13 +5,13 @@
 
 
 from datetime import datetime
-import random
 import time
+import random
 import gspread
 from google.oauth2.service_account import Credentials
 import colorama
-from colorama import Fore, Back, Style
-colorama.init(autoreset = True)
+from colorama import Fore
+colorama.init(autoreset=True)
 
 
 SCOPE = [
@@ -442,10 +442,3 @@ def main():
 
 
 main()
-
-
-
-
-
-
-    
