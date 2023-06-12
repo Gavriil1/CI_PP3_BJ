@@ -78,7 +78,7 @@ def manual():
     time.sleep(print_delay)
     print("statement is not true, casino does not take any additional card.")
     time.sleep(print_delay)
-    input("To start a game please press any key")
+    input(Fore.BLUE + "To start a game please press any key")
 
 
 def start_game():
