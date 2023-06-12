@@ -308,133 +308,79 @@ User sees feedback when the casino playing.
 </details>
 
 
-User sees who won the round player or user.
+User sees the result of a round:
+<details>
+    <summary>Round result</summary>
+
+![Player wins](docs/features/result_win.png)
+![Player loses](docs/features/result-lose.png)
+![Player draws](docs/features/result_draw.png)
+</details>
+
+---------------------------------
 
 User sees the round score.
+<details>
+    <summary>Round Result</summary>
+
+![casino_play](docs/features/round_score.png)
+</details>
 
 Game Results: Score after 10 rounds.
+<details>
+    <summary>Game Result</summary>
 
+![casino_play](docs/features/game_result.png)
+</details>
+---------------------------------
 An Ooption to view game stats or continue playing
+
+<details>
+    <summary>Game End Menu</summary>
+
+![casino_play](ddocs/features/game_end_menu.png)
+</details>
 
 Stat output
 
+<details>
+    <summary>Round Stats</summary>
+
+![casino_play](docs/features/round_stats.png)
+</details>
+
 ### Play options
-- Gives players options to either log in or create a new user
-- User stories covered: 4
-
-<details>
-    <summary>Play options Screenshot</summary>
-
-![Play options](docs/features/play-options.JPG)
-</details>
-
-
-<details>
-    <summary>Sign-up email verification Screenshot</summary>
-
-![Sign-up wrong email](docs/features/sign-up-wrong-email.JPG)
-</details>
 
 ### Users greeting
-- Displays a greeting message to the user once logged in
-- User stories covered: 3, 10
 
-<details>
-    <summary>Greeting Screenshot</summary>
-
-![User greeting](docs/features/user-greeting.JPG)
-</details>
 
 ### Game
-- Displays the name of currect player
-- Players are asked to select the column to insert their piece
-- Display warning message of incorrect column selected
-- Provide feedback on who's won the game
-- Gives options to play again after finished game
-- User stories covered: 3, 5, 6, 13, 14
 
-<details>
-    <summary>Game Screenshot</summary>
-
-![Game screen](docs/features/game-screen.JPG)
-</details>
-
-<details>
-    <summary>Incorrect Move in Game Screenshot</summary>
-
-![Move validation in Game screen](docs/features/game-screen-move-validation.JPG)
-</details>
-
-<details>
-    <summary>Winner Message Screenshot</summary>
-
-![Winner Message](docs/features/game-screen-winner-message.JPG)
-</details>
 
 ### Finished Game options
 
-<details>
-    <summary>Finished Game options Screenshot</summary>
-
-![Finished Game options](docs/features/finished-game-options.JPG)
-</details>
 
 #### Play 
-- Restarts the game for the same players
-- User stories covered: 7
-
-<details>
-    <summary>Restart game Screenshot</summary>
-
-![Restart Game](docs/features/restart-game.JPG)
-</details>
 
 #### Go to main menu
-- Brings players to the main menu of the program
+
 
 #### See your statistics
-- Display number of games won so far by each logged player
-- User stories covered: 9
-
-<details>
-    <summary>See your statistics Screenshot</summary>
-
-![Statistics](docs/features/statistics.jpg)
-</details>
 
 #### Quit game
-- Exits the program with a goodbye message
 
-<details>
-    <summary>Quit game Screenshot</summary>
 
-![Quit Game](docs/features/quit-game.JPG)
-</details>
 
 ### User Input Validation
-- Displays an error message if user input is not in a form that was expected
-- Asks for a new input and provides guidance to user on how to correctly format the input
-- User stories covered: 5, 13, 14
+- If the user's input does not match the expected format, an error message is shown.
+- The user is prompted to enter a new input and given instructions on how to format it correctly.
 
 <details>
-    <summary>Username validation Screenshot</summary>
+    <summary>User Option Validation Screenshot.</summary>
 
-![Username validation](docs/features/validation-username.JPG)
+![User Input Validation](docs/features/validation.png)
 </details>
 
-<details>
-    <summary>Email validation Screenshot</summary>
-
-![Email validation](docs/features/validation-email.JPG)
-</details>
-
-<details>
-    <summary>Validation of input during the game Screenshot</summary>
-
-![Moves validation](docs/features/game-screen-move-validation.JPG)
-</details>
-
-[Back to Table Of Contents](#table-of-contents)
 
 ## Validation
 
@@ -444,17 +390,6 @@ Stat output
 <img src="docs/validation/pep8-validation-run.JPG">
 </details>
 
-<details><summary>PEP3 check for validation.py</summary>
-<img src="docs/validation/pep8-validation-validation.JPG">
-</details>
-
-<details><summary>PEP3 check for colors.py</summary>
-<img src="docs/validation/pep8-validation-colors.JPG">
-</details>
-
-<details><summary>PEP3 check for test_validation.py</summary>
-<img src="docs/validation/pep8-validation-test-validation.JPG">
-</details>
 
 ## Testing
 

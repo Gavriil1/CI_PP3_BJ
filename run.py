@@ -423,7 +423,7 @@ def main():
     welcome_page()
     while True:
         start_game()
-        while game < 3:
+        while game < 11:
             logs_u.append_row([tstamp, "New Round starts"])
             print(Fore.CYAN + "NEW ROUND STARTS")
             print(Fore.MAGENTA + f"ROUND {game}")
