@@ -288,9 +288,25 @@ User can see the first card of the casino.
 
 ![gplayer_cards](docs/features/casino-card.png)
 </details>
-User has an option to choose to get a new card or not.
 
-User sees anotations when the casino playing.
+-------------------------------------
+
+User has an option to choose to get a new card or not.
+<details>
+    <summary>New Card</summary>
+
+![gplayer_cards](docs/features/new-card.png)
+</details>
+
+---------------------------------
+User sees feedback when the casino playing.
+
+<details>
+    <summary>Casino play</summary>
+
+![casino_play](docs/features/casino_play.png)
+</details>
+
 
 User sees who won the round player or user.
 
