@@ -222,9 +222,8 @@ VSCode was used to write the project code using Code Institute template
 
 #### Third Party Libraries
 - [colorama](https://pypi.org/project/colorama/) - Was used to make the text of the game more readable and experience more enjoyable.
-- [gspread](https://docs.gspread.org/en/latest/) - 
-I utilized the gspread library to perform tasks such as adding and manipulating data within my Google spreadsheet, as well as interacting with various Google APIs.
-- [google.oauth2.service_account](https://google-auth.readthedocs.io/en/master/) - JUSTIFICATION: module used to set up the authentification needed to access the Google API and connect my Service Account with the Credentials function. A creds.json file is created with all details the API needs to access the google account. In deployment to Render this information is stored in the config var section.
+- [gspread](https://docs.gspread.org/en/latest/) - I utilized the gspread library to perform tasks such as adding and manipulating data within my Google spreadsheet.
+- [google.oauth2.service_account](https://google-auth.readthedocs.io/en/master/) - The module employed to establish the necessary authentication for accessing the Google API and linking my Service Account with the Credentials function is responsible for this setup. As a result, a creds.json file is generated, containing all the required details for the API to access the associated Google account. During deployment to Render, this information is stored within the config var section.
 
 [Back to Table Of Contents](#table-of-contents)
 
@@ -233,25 +232,52 @@ I utilized the gspread library to perform tasks such as adding and manipulating 
 ### Main menu
 
 - Provides user with graphic welcome message
-- Gives user option to view game rules or start game
-- User stories covered: 1, 2
- 
 <details>
-    <summary>Main Menu Screenshot</summary>
+    <summary>Welcome Message</summary>
 
-![Main menu](docs/features/main-menu.JPG)
+![WelcomeMessage](docs/features/welcome_message.png)
+</details>
+
+- A Menue to select option to view the game rules or continue playing a game
+
+<details>
+    <summary>Game Welcome Menu</summary>
+
+![Game_welcome_menu](docs/features/game_welcome_menu.png
 </details>
 
 ### Game rules
-- Displays clear game rules
-- Allows user to return to the main menu once read
-- User stories covered: 2
+- Game rules, if user elect an option to see the game.
+
+- An option to start a game after rule output.
+
   
 <details>
     <summary>Game rules Screenshot</summary>
 
 ![Game rules](docs/features/game-rules.JPG)
 </details>
+
+
+### Playgame
+
+User can see his cards and sum of his cards.
+
+User can see the first card of the casino.
+
+User has an option to choose to get a new card or not.
+
+User sees anotations when the casino playing.
+
+User sees who won the round player or user.
+
+User sees the round score.
+
+Game Results: Score after 10 rounds.
+
+An Ooption to view game stats or continue playing
+
+Stat output
 
 ### Play options
 - Gives players options to either log in or create a new user
@@ -263,37 +289,6 @@ I utilized the gspread library to perform tasks such as adding and manipulating 
 ![Play options](docs/features/play-options.JPG)
 </details>
 
-### Log-in
-- Asks users for their email addresses
-- Informs them if the email they input is incorrect or not registered
-- Gives user alternative option to try another email or create a new player
-- If correct, saves their details to Google Spreadsheet
-- User stories covered: 4, 5, 12, 13, 14
-
-<details>
-    <summary>Log-in Screenshot</summary>
-
-![Log-in](docs/features/log-in.JPG)
-</details>
-
-<details>
-    <summary>Alternative options Screenshot</summary>
-
-![Log-in wrong email](docs/features/log-in-wrong-email.JPG)
-</details>
-
-### Sign-up
-- Asks user for their name and email address
-- Validates user input values
-- Informs user if the name they input is incorrect
-- Informs user if the email is already taken and asks for another one
-- User stories covered: 5, 12, 13, 14
-
-<details>
-    <summary>Sign-up Screenshot</summary>
-
-![Sign-up](docs/features/sign-up.JPG)
-</details>
 
 <details>
     <summary>Sign-up email verification Screenshot</summary>
