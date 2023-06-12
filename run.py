@@ -58,7 +58,6 @@ def manual():
     the function prints rules of the game
     '''
     print("1) Player and casino receive two random cards from the deck.")
-    print("")
     time.sleep(print_delay)
     print("2) Player can see both his cards and only one card of the casino.")
     time.sleep(print_delay)
