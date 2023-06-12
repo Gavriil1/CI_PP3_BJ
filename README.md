@@ -243,28 +243,51 @@ VSCode was used to write the project code using Code Institute template
 <details>
     <summary>Game Welcome Menu</summary>
 
-![Game_welcome_menu](docs/features/game_welcome_menu.png
+![Game_welcome_menu](docs/features/game_welcome_menu.png)
 </details>
 
 ### Game rules
-- Game rules, if user elect an option to see the game.
+- Game rules description, if user select an option to see the game.
 
-- An option to start a game after rule output.
-
-  
 <details>
-    <summary>Game rules Screenshot</summary>
+    <summary>Game Rules</summary>
 
-![Game rules](docs/features/game-rules.JPG)
+![game_rules](docs/features/game_rules.png)
 </details>
+-----------------------------------------
 
+
+- Menu to start a game after rule output.
+
+<details>
+    <summary>Game Rules Menu</summary>
+
+![game_rules_menu](docs/features/game_rule_menu.png)
+</details>
+  ---------------------------------------
 
 ### Playgame
 
 User can see his cards and sum of his cards.
+<details>
+    <summary>Player's Cards</summary>
+
+![gplayer_cards](docs/features/player-cards.png)
+</details>
+-------------------------------------
+<details>
+    <summary>Player's Cards</summary>
+
+![gplayer_cards](docs/features/player-cards.png)
+</details>
+---------------------------------------------
 
 User can see the first card of the casino.
+<details>
+    <summary>Casino's Card</summary>
 
+![gplayer_cards](docs/features/casino-card.png)
+</details>
 User has an option to choose to get a new card or not.
 
 User sees anotations when the casino playing.
