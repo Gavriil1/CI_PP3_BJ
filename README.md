@@ -50,27 +50,27 @@ Rules of the game are:
 ### User Goals
 
 
-- Play a fun casino game.
-- Receive feedback from the game, to verify the number of the round and the
-score between casino and player.
+- Play a fun game.
+- Receive anotation from the game to make the game enjoyable.
+- Well designed game when the text of the game is easy readable
 
 ### Site Owner Goals
 
 - Create user friendly and intiutive environment for the game.
 - Create a game that save log file of the game.
-- Create a code which collect statistics about results of the game
+- Create a code which collect statistics about results of the game.
 
 ## User Experience
 
 ### Target Audience
 
-The target audience of the game is  people 18+, because it is it a casino game.
+The target audience of the game is  people 18+.
 
 ### User Requirements and Expectations
 
 - Simple, easy, intuitive interface to play a game.
-- Good commentary, to understand and enjoy a game flow.
-- Information about final score when the game is over.
+- The text of the game is easy to read.
+- Events, Results of the rounds and Game are presented to the user.
 
 ### User Manual
 
@@ -79,10 +79,10 @@ The target audience of the game is  people 18+, because it is it a casino game.
 #### Main Menu
 The main menu showcases an ASCII art representation of the title 'Black Jack'. Beneath the welcoming graphic, users are given two choices:
 
-1. Access the game rules.
-2. Engage in gameplay.
+1. Read game manual.
+2. Start a game.
 
-To access the game rules, users are required to input "0". For gameplay, any other key must be pressed.
+To access the game rules, user may input "0". For gameplay, any other key can be pressed.
 
 #### Game rules
 
@@ -90,48 +90,42 @@ Rules of the game are:
 
     1) Player and Casino receives two random cards from the followoing array: unlimitted_deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
     2) Player can see both his cards and only one card of the casino
-    3) If at some point of the game the same of the cards is over 21 casino/player who have the nand loses straight away
-    4) If at some point of the game, the sum of the card is 21, casino/player who have the card wins straight away.
+    3) If at some point of the game the sum of the cards is over 21 casino/player who have the cards loses straight away
+    4) If at some point of the game, the sum of the card is 21, casino/player who have the cards wins straight away.
     5) If sum of the cards is bellow 21 for both players and noone wants to take additional card, we compaire sum of player and casino cards to define a winner.
 
     6) After receiving two cards the player may choose to receive additional card.
     7) If player do not want to take additional card, casino check if Casino SUM > Player SUM and if Casino SUM 17. If it is the case, casino takes additional card.  If the above statement is not true, casino does not take any additional card.
 
-#### Play
+#### Game
 
 When the user click "RUN Program"
 He is welcomed to the game. The game informs him that he is going to play a game of 10 rounds. Website informs him that results of the game will be saved to Excel.
 
 After the user has an option to press 0 to see game manual,  or to press any other key to start a game.
 
-When the ame starts the user receives 2 cards and see both of them. Casino also receives two cards but player can see only 1 of them.
-
-After user has an option to take a new card. If the user does not take card 
-casino starts taking new card.
+When the game starts the user receives 2 cards and see both of them. Casino also receives two cards but player can see only 1 of them.
 
 
-#### Game
+After user has an option to take an additional card. If player receive an additional card we have three outcomes
+1. Player SUm  > 21. In this situation the player loses
+2. Player sum = 21. Player wins
+3. Player Sum <21 in this case player may take additional card. If player does not take additional card the casino starts playing.
 
-Players take turns to make their moves.
-The player to start is randomly selected by the program.
-The current player's name is displayed beneath the blue board showing which piece they play with. Player has to select which column they want to locate their piece in.
-Operation: Input a numeric value between 1 - 7 and press enter key.
+After the user rejects to take a new card the casino starts playing. Casino Checks if casino sum > player sum. In this is the case, casino wins.
 
-A selection of invalid column will display a warning message and ask user to select a valid column.
+If Casino SUM <= Player SUM and Casino Sum < 17 the casino takes additional cards.
+in this senario we have the following outomes:
+1. Casino Sum > 21. In this scenario casino loses the game.
+2. Casino Sum = 21. In this scenario casino wins.
+3. If casino Sum > player sum casino wins
+4. If casino Sum <= Player Sum  and Casino Sum > 17. We compaire the sums of Casino and Player
+to define a winner.
+5. If casino Sum <= Player Sum  and Casino Sum < 17. Casino takes a new card and we check again if statements from 1-5 are true. Finaly the casino wins or loses the game according to the if statements above
 
-The game continues until one of the players connect their four pieces.
 
-When a player wins, a message with their name is shown on the screen.
 
-Players have 4 different options to choose from:
-1. Play again
-2. Go to main menu
-3. See your statistics
-4. Quit game
-
-Operation: Input a numeric value and press enter key.
-
-#### Play again
+#### End of a Game 
 At the end of the game the user has an option to play a game again.
 
 Here is an output the user is going to see:
@@ -142,6 +136,7 @@ After 10 rounds the score is
 PLAYER:2 CASINO:0
 Hello worldplayer won a game of 10 rounds
 PRESS ANY KEY TO PLAY. PRESS 0 TO SEE GAME STATS:
+
 
 #### Go to main menu
 At the end of the game the user haas an option to restart the game.
@@ -169,18 +164,17 @@ If the user press 0 he will see an output in the following format:
 ### Users
 
 1. I desire distinct choices to choose from on the main menu.
-2. I would like the ability to access and peruse the game rules.
+2. I would like the ability to access and read the game rules.
 3. I expect to receive continuous, real-time feedback throughout the game.
-4. I anticipate receiving feedback when a round concludes.
+4. I expect receiving feedback when a round concludes.
 5. I expect to receive feedback when the game concludes.
-6. I would like to be able to see my probability of winning or losing.
-7. I want to visually observe the new card I receive when dealt a new card.
-8. I want to visually observe the new card the casino receives when they draw a new card.
+6. I want to visually observe the new card I receive when dealt a new card.
+7. I want to visually observe the new card the casino receives when it recives a new card.
 
 ### Site Owner
-9. I desire a user-friendly menu interface that facilitates easy option selection.
-10. I want to provide feedback to the user when they make incorrect inputs or when deciding whether to draw a new card or not.
-11. I aim for the game text to be easily readable and comprehensible for the user.
+8. I want to be able to see the propabilites casino winning losing or draw the game
+9. I want to provide feedback to the user when they make incorrect inputs or when deciding whether to draw a new card or not.
+10. I aim for the game text to be easily readable and comprehensible for the user.
 
 
 [Back to Table Of Contents](#table-of-contents)
@@ -231,7 +225,10 @@ VSCode was used to write the project code using Code Institute template
 
 ### Main menu
 
-- Provides user with graphic welcome message
+- Provides user with ASCII art welcome message
+
+User story: 11
+
 <details>
     <summary>Welcome Message</summary>
 
@@ -239,6 +236,8 @@ VSCode was used to write the project code using Code Institute template
 </details>
 
 - A Menue to select option to view the game rules or continue playing a game
+
+User story: 1, 2
 
 <details>
     <summary>Game Welcome Menu</summary>
@@ -249,6 +248,8 @@ VSCode was used to write the project code using Code Institute template
 ### Game rules
 - Game rules description, if user select an option to see the game.
 
+User Story: 2
+
 <details>
     <summary>Game Rules</summary>
 
@@ -257,7 +258,7 @@ VSCode was used to write the project code using Code Institute template
 -----------------------------------------
 
 
-- Menu to start a game after rule output.
+- Menu to start a game after rules output.
 
 <details>
     <summary>Game Rules Menu</summary>
@@ -266,9 +267,14 @@ VSCode was used to write the project code using Code Institute template
 </details>
   ---------------------------------------
 
+User Story: 1
+
 ### Playgame
 
 User can see his cards and sum of his cards.
+
+User story: 3
+
 <details>
     <summary>Player's Cards</summary>
 
@@ -283,6 +289,9 @@ User can see his cards and sum of his cards.
 ---------------------------------------------
 
 User can see the first card of the casino.
+
+User Story: 3
+
 <details>
     <summary>Casino's Card</summary>
 
@@ -292,6 +301,9 @@ User can see the first card of the casino.
 -------------------------------------
 
 User has an option to choose to get a new card or not.
+
+User Story: 7a
+
 <details>
     <summary>New Card</summary>
 
@@ -384,10 +396,10 @@ Stat output
 
 ## Validation
 
-[PEP8 Validation Service](http://pep8online.com/) was used to check the code for PEP8 requirements. All the code passes with no errors and no warnings to show.
+[PEP8 Validation Service](https://pep8ci.herokuapp.com/) The code underwent verification for PEP8 compliance and successfully passed without any errors or warnings.
 
 <details><summary>PEP3 check for run.py</summary>
-<img src="docs/validation/pep8-validation-run.JPG">
+<img src="docs/verification/verification.png">
 </details>
 
 

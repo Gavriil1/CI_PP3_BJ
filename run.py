@@ -44,9 +44,9 @@ def welcome_page():
     '''
     Y = Fore.YELLOW
     print(Fore.GREEN + "Welcome to: ")
-    print(Y + "####                                   #")                      
+    print(Y + "####                                   #")
     print(Y + "#   # #      ##    ####  #    #        #   ##    ####  #    # ")
-    print(Y + "#   # #     #  #  #    # #   #         #  #  #  #    # #   # ") 
+    print(Y + "#   # #     #  #  #    # #   #         #  #  #  #    # #   # ")
     print(Y + "####  #    #    # #      ####          # #    # #      ####   ")
     print(Y + "#   # #    ###### #      #  #      #   # ###### #      #  #   ")
     print(Y + "#   # #    #    # #    # #   #     #   # #    # #    # #   #  ")
@@ -102,6 +102,7 @@ def start_game():
     if show_man == "0":
         manual()
 
+
 def newgame():
     '''
     Function Sets varialbles to start a new round
@@ -139,7 +140,7 @@ def casino_start_first_playing():
     '''
         When player rejcects to take a new card this function starts.
         It checkes if "casino sum" > "player sum" if it trues casino wins.
-        Otherwise, we check if "casino sum" <17. and if this a case, casino 
+        Otherwise, we check if "casino sum" <17. and if this a case, casino
         takes a new card and do the same estimation again.
     '''
     global casino_cards, casino_points, player_points
@@ -241,8 +242,8 @@ def casino_start_first_playing():
 def player_start_first_playing():
     '''
     The function show to the player his card and 1 card of the casino.
-    Player decides if he wants to take a new card. If he wants to take 
-    a new card , a new card assigned to him. 
+    Player decides if he wants to take a new card. If he wants to take
+    a new card , a new card assigned to him.
     If player rejects to take a card, casino starts playing
     '''
     global player_cards, player_points, casino_points
@@ -269,7 +270,7 @@ def player_start_first_playing():
     time.sleep(print_delay)
     print(Fore.GREEN + f"PLAYER SUM {sum(player_cards)}")
     time.sleep(print_delay)
-    print(Fore.MAGENTA  + f"CASINO FIRST CARD IS {casino_cards[0]}")
+    print(Fore.MAGENTA + f"CASINO FIRST CARD IS {casino_cards[0]}")
     time.sleep(print_delay)
     print("DO YOU WANT ADDITIONAL CARD? PRESS '1' FOR YES, '0' FOR No")
 
@@ -288,7 +289,6 @@ def player_start_first_playing():
         else:
             time.sleep(print_delay)
             print(Fore.RED + "PLEASE ENTER VALID ENTRY  '0' or '1'")
-
 
     while user_response == 1:
         logs_u.append_row([tstamp, f"Player gets an additonal card"])
@@ -353,6 +353,7 @@ def player_start_first_playing():
         print(Fore.CYAN + "CASINO'S CARDS ARE: ")
         print(casino_cards)
         casino_start_first_playing()
+
 
 def stats():
     """
