@@ -163,18 +163,20 @@ If the user press 0 he will see an output in the following format:
 
 ### Users
 
-1. I desire distinct choices to choose from on the main menu.
-2. I would like the ability to access and read the game rules.
+1. I desire distinct choices to choose from on the main menu.  
+2. I would like the ability to access and read the game rules. 
 3. I expect to receive continuous, real-time feedback throughout the game.
-4. I expect receiving feedback when a round concludes.
-5. I expect to receive feedback when the game concludes.
+4. I expect receiving feedback when a round concludes. 
+5. I expect to receive feedback when the game concludes. 
 6. I want to visually observe the new card I receive when dealt a new card.
-7. I want to visually observe the new card the casino receives when it recives a new card.
+7. I want to visually observe the new card the casino receives when it recives a new card. 
+8. 7a I want to have an option, to choose if I want to receive an additional card. 
 
 ### Site Owner
-8. I want to be able to see the propabilites casino winning losing or draw the game
-9. I want to provide feedback to the user when they make incorrect inputs or when deciding whether to draw a new card or not.
-10. I aim for the game text to be easily readable and comprehensible for the user.
+9. I want to be able to see the propabilites casino winning losing or draw the game. 
+10. I want to provide feedback to the user when they make incorrect inputs or when deciding whether to draw a new card or not. 
+11. I want to welcome user with a welcome message.
+
 
 
 [Back to Table Of Contents](#table-of-contents)
@@ -426,61 +428,56 @@ User story 10
 
 
 
-## Testing
 
-The testing approach is as follows:
-1. Manual testing of user stories
-2. Automated unit testing using the Python unittest library
 
-### Manual Testing
+### User story testing
 <details><summary>See user stories testing</summary>
 
-1. I want to have clear options to select in the main menu
+1. I desire distinct choices to choose from on the main menu.  
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| Main menu | Select option 1 | Users are presented with game rules | Works as expected |
-| Main menu | Select option 2 | Users are asked if they played the game before | Works as expected |
+| Main menu | Select option 0 | Users can see game manual | Works as expected |
+| Main menu | Press any other key | Game starts. | Works as expected |
 
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-story-1.jpg">
+<details><summary>Screenshots</summary>
+<img src="docs/user_stories/main_manue_zero.png">
+<img src="docs/user_stories/main_menu_any.png">
 </details>
 
-2. I want to be able to read the rules of the game
+2. I would like the ability to access and read the game rules. 
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| Main menu | Select option 1 | Users are presented with game rules | Works as expected |
+| Main menu | Select option 0 | User can see game manual. | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-story-2.jpg">
+<img src="docs/user_stories/main_manue_zero.png">
 </details>
 
-3. I want to personalise the game and enter my name
+3. I expect to receive continuous, real-time feedback throughout the game.
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| Play game options | Select option 1 (log-in) | Users are asked to input their email addresses, and once validated, a greeting message with their name is displayed. Names are displayed during the game | Works as expected |
-| Play game options | Select option 2 (sign-up) | Users are asked to input their names, once validated the names are saved and greeting message displayed. Names are displayed during the game | Works as expected |
+| Play game options | Start a game | User can see anotation and game feedback continiously, through entire game. | Works as expected |
+
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-story-3-a.jpg">
-</details>
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-story-3-b.jpg">
+<img src="docs/user_stories/user_story_three.png">
 </details>
 
-4. I want to be able to log-in if I return to the game
+
+4. I expect receiving feedback when a round concludes. 
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| Play game options | Select option 1 (log-in) | Returning users are asked to input the email address they registered before and once validated, a greeting message with their name is displayed | Works as expected |
+| Play game options | Start playing a round | The user can see at the end of the game who won and why. He also can see the round score between casino and player | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-story-4.jpg">
+<img src="docs/user_stories/user_story_four.png">
 </details>
 
-5. I want to receive a real time feedback throughout the game
+5. I expect to receive feedback when the game concludes.
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
@@ -493,7 +490,7 @@ The testing approach is as follows:
 <img src="docs/testing/user-story-5-d.JPG">
 </details>
 
-6. I want to get a feedback when I win the game
+6. I expect to receive feedback when the game concludes.
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |

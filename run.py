@@ -390,11 +390,11 @@ def summary():
     print(Fore.MAGENTA + f"PLAYER:{player_points} CASINO:{casino_points}")
     if player_points > casino_points:
         time.sleep(print_delay)
-        print(Fore.GREEN + "Hello world""player won a game of 10 rounds")
+        print(Fore.GREEN + "Player won a game of 10 rounds")
         logs_u.append_row([tstamp, "Player Won the entire game"])
     elif player_points < casino_points:
         time.sleep(print_delay)
-        print(Fore.GREEN + "Hello world""Casino won a game of 10 rounds")
+        print(Fore.GREEN + "Casino won a game of 10 rounds")
         logs_u.append_row([tstamp, "Casino Won the entire game"])
     else:
         time.sleep(print_delay)
