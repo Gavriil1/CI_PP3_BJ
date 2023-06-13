@@ -225,7 +225,7 @@ VSCode was used to write the project code using Code Institute template
 
 ### Main menu
 
-- Provides user with ASCII art welcome message
+-  Provides user with ASCII art welcome message
 
 User story: 11
 
@@ -260,6 +260,8 @@ User Story: 2
 
 - Menu to start a game after rules output.
 
+User Story: 1
+
 <details>
     <summary>Game Rules Menu</summary>
 
@@ -267,7 +269,7 @@ User Story: 2
 </details>
   ---------------------------------------
 
-User Story: 1
+
 
 ### Playgame
 
@@ -302,7 +304,7 @@ User Story: 3
 
 User has an option to choose to get a new card or not.
 
-User Story: 7a
+User Story: 8, 6
 
 <details>
     <summary>New Card</summary>
@@ -310,8 +312,24 @@ User Story: 7a
 ![gplayer_cards](docs/features/new-card.png)
 </details>
 
+
+---------------------------------
+User sees a new card, when he chooses to pick up a new card from a deck
+
+User Story: 6
+
+<details>
+    <summary>New Card</summary>
+
+![gplayer_cards](docs/features/additional_card.png)
+</details>
+
+---------------------------------
+
 ---------------------------------
 User sees feedback when the casino playing.
+
+User story: 3, 7
 
 <details>
     <summary>Casino play</summary>
@@ -321,6 +339,9 @@ User sees feedback when the casino playing.
 
 
 User sees the result of a round:
+
+User Story: 4
+
 <details>
     <summary>Round result</summary>
 
@@ -332,28 +353,17 @@ User sees the result of a round:
 ---------------------------------
 
 User sees the round score.
+
+User story: 4
+
 <details>
     <summary>Round Result</summary>
 
 ![casino_play](docs/features/round_score.png)
 </details>
 
-Game Results: Score after 10 rounds.
-<details>
-    <summary>Game Result</summary>
 
-![casino_play](docs/features/game_result.png)
-</details>
 ---------------------------------
-An Ooption to view game stats or continue playing
-
-<details>
-    <summary>Game End Menu</summary>
-
-![casino_play](ddocs/features/game_end_menu.png)
-</details>
-
-Stat output
 
 <details>
     <summary>Round Stats</summary>
@@ -361,37 +371,47 @@ Stat output
 ![casino_play](docs/features/round_stats.png)
 </details>
 
-### Play options
-
-### Users greeting
-
-
-### Game
-
-
 ### Finished Game options
+Game Results: Score after 10 rounds.
 
+User story: 5
 
-#### Play 
+<details>
+    <summary>Game Result</summary>
+
+![casino_play](docs/features/game_result.png)
+</details>
+---------------------------------
 
 #### Go to main menu
 
 
 #### See your statistics
 
-#### Quit game
 
+An Ooption to view game stats or continue playing
+
+User story: 9
+
+<details>
+    <summary>Game End Menu</summary>
+
+![casino_play](ddocs/features/game_end_menu.png)
+</details>
 
 
 ### User Input Validation
 - If the user's input does not match the expected format, an error message is shown.
 - The user is prompted to enter a new input and given instructions on how to format it correctly.
 
+User story 10
+
 <details>
     <summary>User Option Validation Screenshot.</summary>
 
 ![User Input Validation](docs/features/validation.png)
 </details>
+
 
 
 ## Validation
@@ -401,6 +421,9 @@ Stat output
 <details><summary>PEP3 check for run.py</summary>
 <img src="docs/verification/verification.png">
 </details>
+
+
+
 
 
 ## Testing
