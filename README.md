@@ -548,40 +548,6 @@ User story 10
 <img src="docs/user_stories/welcme.png">
 </details>
 
-12.  I want user names and emails to be saved to Google Spreadsheet
-
-| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
-| ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| Log-in | Both users input their names and email address which has not been previously registered  | Username and email addresses are saved to Google Spreadsheet to the next available rows in columns 1 & 2 respectively | Works as expected |
-
-<details><summary>Screenshot</summary>
-<img src="docs/testing/user-story-12.jpg">
-</details>
-
-13.  I want the user to get feedback in case of wrong input
-
-| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
-| ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| Across all screen | User inputs invalid numeric value in the menu or game. User inputs invalid value during log-in or sign-up | Feedback message displayed to the user | Works as expected |
-
-<details><summary>Screenshots</summary>
-<img src="docs/testing/user-story-13-a.jpg">
-<img src="docs/testing/user-story-13-b.jpg">
-</details>
-
-14.  I want data entry to be validated, to guide the user on how to correctly format the input
-
-| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
-| ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| Across all screen | User inputs invalid data | Feedback message with instructions diplayed to the user | Works as expected |
-
-<details><summary>Screenshots</summary>
-<img src="docs/testing/user-story-14-a.jpg">
-<img src="docs/testing/user-story-14-b.jpg">
-</details>
-
-
-
 ### Automated Testing
 <details><summary>See unit testing</summary>
 
@@ -620,24 +586,38 @@ When running the test initially, there was a TypeError called - 'TypeError: 'int
 
 ## Deployment
 
-### Render
-This application has been deployed from GitHub to Render by following the steps:
+### Heroku.com
+The following procedure was used to deploy "Black Jack" to Herocu.com:
 
-1. Create or log in to your account at render.com
-2. Make sure you have connected your GitHub account to Render.com - follow the steps to Get Started and Sign up for Render. Click “New +” and select “Web Service”, on the right of the page, select “+ Connect account” for GitHub, ensure All repositories is selected and click “Install”
-4. Web service creation: Click “New +” and then “Web Service”. Search for relevant repo and click “Connect”.
-5. Settings: the web service's configuration settings are required to ensure the application is configured correctly. Add a Setting Name, leave Root Directory blank, add Environment 'Python3', Region (The physical location of the server hosting the web service), Branch - main
-6. Set the Build Command:
-    ```
-    pip install -r requirements.txt && npm install
-    ```
-7. Set the Start Command
-    ```
-    node index.js
-    ```
-8. Set up Environment Variables: Scroll down and click “Advanced” and “Add Environment Variable”. Add a key 'PORT' and value of '8000' and 'PYTHON_VERSION' with value of 3.10.7.
-9. Click “Add Secret File” and add a Filename 'creds.json' and file content.
-10. Click “Create Web Service” and wait for the project to build. First, the build is initiated. Then the build and deployment processes are carried out. Finally, the application is deployed and ready for public viewing.
+
+
+1. Login to [Heroku](https://dashboard.heroku.com/)
+<img src="docs/deployement/login.png">
+2. Select "New" > "Create new app" .
+<img src="docs/deployement/create_new_app.png">
+3. Give a name to your app, choose region and click 'Create app'.
+<img src="docs/deployement/app_name.png">
+4. On a next page, after creating an app, select GitHub as a "Deployment Method"
+<img src="docs/deployement/deployment_method.png">
+1. Connect repository to Heroku.
+<img src="docs/deployement/repository_connect.png">
+1. Click on the settings tab.
+<img src="docs/heroku/heroku6.png">
+1. Scroll down to the config vars section, and add 2 config vars:
+    * The first key is CREDS and the value here is the creds.json file that was generated for the google sheets API to work properly.
+    * The second key is PORT and the Value is 8000
+<img src="docs/heroku/heroku7.png">
+1. Once you have set up the config vars, scroll down to buildpacks (still under the settings tab)
+1. Add the Python and Node.js buildpacks to your app and make sure that when they are displayed, they appear in the order:
+    * Python
+    * Node.JS
+<img src="docs/heroku/heroku8.png">
+1. Navigate back to the settings tab.
+1. Select automatic deploys to allow Heroku to build the site with new changes each time changes are pushed to GitHub.
+<img src="docs/heroku/heroku9.png">
+1. In the 'manual deploy' section beneath this, make sure the branch selected is 'main' and click deploy branch.
+<img src="docs/heroku/heroku10.png">
+1. The site should now be built and Heroku should provide a url for the built site.
 
 
 ### Forking the GitHub Repository
@@ -662,18 +642,8 @@ This application has been deployed from GitHub to Render by following the steps:
 - [Flaticon](https://www.flaticon.com/free-icon/connect_1707222) was used for the website favicon
 
 ### Code
-- [ASCII Art Generator](http://patorjk.com/software/taag/) was used to create game title
-- Code Institute - for git template IDE and "Love Sandwiches - Essentials Project" which helped me with connecting the Google Spreadsheet to my project.
-- [ColorSpace](https://mycolor.space/gradient) was used to create a gradient button and background effect
-- How to install a Python module, eg. [email validation](https://pypi.org/project/email-validator/Installing)
-- [gspread documentation](https://docs.gspread.org/en/latest/user-guide.html) explained how to obtain a specific value from the google spreadsheet
-- Instructions how to print colored text from [this](https://ozzmaker.com/add-colour-to-text-in-python/) and [this](https://stackabuse.com/how-to-print-colored-text-in-python/) sources
-- [Stack overflow](https://stackoverflow.com/questions/20302331/typing-effect-in-python) helped me create typing effect in games rules
-- [Stack overflow](https://stackoverflow.com/questions/517970/how-to-clear-the-interpreter-console) code used to clear the terminal console
+- [ASCII Art Generator](http://patorjk.com/software/taag/) was user to generate a "Welcome Message"
+- [Code Institute](https://codeinstitute.net/global/) was used to learn how to save, and retrieve data with Google API from google worksheets.
 - Youtube video on [Unit Test in Python](https://www.youtube.com/watch?v=1Lfv5tUGsn8) made by Socratica was very helpful to understand the concept of unit tesing
-- Youtube tutorial [“Python Connect 4 Tutorial”](https://www.youtube.com/watch?v=gvP0gNSO17k&t=429s) made by [Spencer Lepine](https://www.youtube.com/channel/UCBL6vAHJZqUlyJp-rcFU55Q) - I used a part of Spencer's code for display of the game board, moves of alternative players and saving last move's coordinates on the board
-- Youtube tutorial [“Creating a Connect 4 Game in Python”](https://www.youtube.com/watch?v=Bk2ny_aeG-Y) made by [“Painless Programming”](https://www.youtube.com/channel/UC8ck1Yks7yP33XInXw5GZIw) -  inspired me to create a schemat for winning move logic
-<details><summary>See winning move schemat</summary>
-<img src="docs/winning-move- logic-schemat.jpg">
-</details>
+
 
