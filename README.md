@@ -613,27 +613,33 @@ The following procedure was used to deploy "Black Jack" to Herocu.com:
     * Python
     * Node.JS
 <img src="docs/deployement/build_packs.png">
-1. Navigate back to the settings tab.
-1. Select automatic deploys to allow Heroku to build the site with new changes each time changes are pushed to GitHub.
+
+9 To enable automatic deployment, please scroll down to the "Automatic Deploy" section. Choose the option for automatic deploys, which allows Heroku to build the website using the latest changes whenever new changes are pushed to GitHub.
 <img src="docs/deployement/automatic_deploy.png">
-1. In the 'manual deploy' section beneath this, make sure the branch selected is 'main' and click deploy branch.
+10. 
+In the 'Manual Deploy' section below, ensure that the branch selected is 'main' and proceed to click on the 'Deploy Branch' button.
 <img src="docs/deployement/manual_deploy.png">
-1. The site should now be built and Heroku should provide a url for the built site.
+11. Please navigate to application url provided by heroku, to veriy that application is accessible. 
 
 
 ### Forking the GitHub Repository
-1. Go to the GitHub repository
-2. Click on Fork button in top right corner
-3. You will then have a copy of the repository in your own GitHub account.
+
+Follow these steps to fork the repository:
+1. Visit the GitHub repository.
+2. Click on "Fork button" in upper right hand corner
+    Please check the following link for more information: https://docs.github.com/en/get-started/quickstart/fork-a-repo
    
 ### Making a Local Clone
+Follow these steps to clone the repository:
 1. Go to the GitHub repository 
-2. Locate the Code button above the list of files and click it
-3. Highlight the "HTTPS" button to clone with HTTPS and copy the link
+2. Find the "Code" button located above the file list and click on it.
+3. Choose whether you prefer to clone via HTTPS, SSH, or Github CLI, and then click on the copy button to copy the URL to your clipboard.
 4. Open Git Bash
-5. Change the current working directory to the one where you want the cloned directory
-6. Type git clone and paste the URL from the clipboard ($ git clone <span>https://</span>github.com/YOUR-USERNAME/YOUR-REPOSITORY)
-7. Press Enter to create your local clone
+5. Navigate to the directory where you would like to clone the directory and set it as the current working directory.
+6. Type git clone and paste the URL from the clipboard ($ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY)
+7. Hit the Enter key to create your local clone.
+
+    Please check the following link for more information: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 
 [Back to Table Of Contents](#table-of-contents)
 
