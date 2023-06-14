@@ -599,24 +599,25 @@ The following procedure was used to deploy "Black Jack" to Herocu.com:
 <img src="docs/deployement/app_name.png">
 4. On a next page, after creating an app, select GitHub as a "Deployment Method"
 <img src="docs/deployement/deployment_method.png">
-1. Connect repository to Heroku.
+5. Connect Github to Heroku.
 <img src="docs/deployement/repository_connect.png">
-1. Click on the settings tab.
-<img src="docs/heroku/heroku6.png">
-1. Scroll down to the config vars section, and add 2 config vars:
-    * The first key is CREDS and the value here is the creds.json file that was generated for the google sheets API to work properly.
-    * The second key is PORT and the Value is 8000
-<img src="docs/heroku/heroku7.png">
-1. Once you have set up the config vars, scroll down to buildpacks (still under the settings tab)
-1. Add the Python and Node.js buildpacks to your app and make sure that when they are displayed, they appear in the order:
+6. Click settings.
+<img src="docs/deployement/heroku-settings.png">
+7. Please navigate to the configuration variables section below and include two config vars:
+
+    -For the initial key, use "CREDS" and assign the value as the creds.json file that was generated to ensure the proper functioning of the Google Sheets API.
+    -For the second key, label it as "PORT" and set the value to 8000.
+
+<img src="docs/deployement/config_vars.png">
+8. After, Sccroll down to buildpacks, and the following packs in exactly the same order.
     * Python
     * Node.JS
-<img src="docs/heroku/heroku8.png">
+<img src="docs/deployement/build_packs.png">
 1. Navigate back to the settings tab.
 1. Select automatic deploys to allow Heroku to build the site with new changes each time changes are pushed to GitHub.
-<img src="docs/heroku/heroku9.png">
+<img src="docs/deployement/automatic_deploy.png">
 1. In the 'manual deploy' section beneath this, make sure the branch selected is 'main' and click deploy branch.
-<img src="docs/heroku/heroku10.png">
+<img src="docs/deployement/manual_deploy.png">
 1. The site should now be built and Heroku should provide a url for the built site.
 
 
