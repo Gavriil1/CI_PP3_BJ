@@ -431,7 +431,7 @@ User story 10
 
 
 ### User story testing
-<details><summary>See user stories testing</summary>
+
 
 1. I desire distinct choices to choose from on the main menu.  
 
@@ -481,79 +481,71 @@ User story 10
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| User Input Validation & Feedback through game play | Players will be informed if their input is invalid | Error messages displayed | Works as expected |
+| End_Game_Menu | User end the game | User see the message that the game is ended and he sees the score and an option to restart game | Works as expected |
 
 <details><summary>Screenshots</summary>
-<img src="docs/testing/user-story-5-a.JPG">
-<img src="docs/testing/user-story-5-b.JPG">
-<img src="docs/testing/user-story-5-c.JPG">
-<img src="docs/testing/user-story-5-d.JPG">
+<img src="docs/user_stories/user_story_five.png">
 </details>
 
-6. I expect to receive feedback when the game concludes.
+6. I want to visually observe the new card I receive when dealt a new card.
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| Game screen | Player has connected 4 pieces in a row | Message is displayed with the winning player's name | Works as expected |
+| Player see menu to get a new card | User press 1 to get a new card. | User a new card he received | Works as expected |
 
 <details><summary>Screenshots</summary>
-<img src="docs/testing/user-story-6-a.JPG">
-<img src="docs/testing/user-story-6-b.JPG">
+<img src="docs/user_stories/new_card.png">
+
 </details>
 
-7. I want to be able to play multiple games when I'm logged in
+7. I want to visually observe the new card the casino receives when it recives a new card.
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| Finished Game options | User selects play again option  | The game restarts for the same players | Works as expected |
+| Player see an option to receive a new card. | He rejects a new card and casino strts playing.  | New cards of casino are printed on the screen. | Works as expected |
 
 <details><summary>Screenshot</summary>
-<img src="docs/testing/user-story-7.jpg">
+<img src="docs/user_stories/casino_new_card.png">
 </details>
 
-8. I want a random selection of the player to start a new game
+8. I want to have an option, to choose if I want to receive an additional card.
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| Game screen | Once players have logged-in or signed-up the game is loaded  | Different user names display | Works as expected |
+| Game play | User receives two cards  | After receiving two cards the user sees an option to get a new card | Works as expected |
 
 <details><summary>Screenshots</summary>
-<img src="docs/testing/user-story-8-a.JPG">
-<img src="docs/testing/user-story-8-b.JPG">
+<img src="docs/user_stories/menu_new_card.png">
 </details>
 
-9. I want to see how many games I've won so far
+9. I want to be able to see the propabilites casino winning losing or draw the game. 
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| Finished Game options | Select option 3  | Display number of games won for Player1 & Player2 | Works as expected |
+| Finished Game options | Press 0 to see game stats  | Display propabilities for a Player to win, lose or draw | Works as expected |
 
 <details><summary>Screenshots</summary>
-<img src="docs/testing/user-story-9.jpg">
+<img src="docs/user_stories/game_stats.png">
 </details>
 
-10. I want users to have a positive experience whilst playing the game
+10. I want to provide feedback to the user when they make incorrect inputs or when deciding whether to draw a new card or not.
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| Across all screen | Simple navigation and game play  | Colored messages and straightforward instructions | Works as expected |
+| User see an option to receive a new card. | User enters a wrong value  | He sees an error message | Works as expected |
 
 <details><summary>Screenshots</summary>
-<img src="docs/testing/user-story-10-a.jpg">
-<img src="docs/testing/user-story-10-b.jpg">
-<img src="docs/testing/user-story-10-c.jpg">
+<img src="docs/user_stories/error_message.png">
 </details>
 
-11.  I want users to easily select options from the menu
+11.  I want to welcome user with a welcome message.
 
 | **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
-| Across all screen | User inputs invalid numeric value | Users are asked to try again between available options from the menu | Works as expected |
+| Game Launcher | User press "RUN PROGRAM | He sees Welcome Message "Black Jack" | Works as expected |
 
 <details><summary>Screenshots</summary>
-<img src="docs/testing/user-story-11-a.jpg">
-<img src="docs/testing/user-story-11-b.jpg">
-<img src="docs/testing/user-story-11-c.jpg">
+<img src="docs/user_stories/welcme.png">
 </details>
 
 12.  I want user names and emails to be saved to Google Spreadsheet
@@ -588,7 +580,7 @@ User story 10
 <img src="docs/testing/user-story-14-b.jpg">
 </details>
 
-</details>
+
 
 ### Automated Testing
 <details><summary>See unit testing</summary>
@@ -685,8 +677,3 @@ This application has been deployed from GitHub to Render by following the steps:
 <img src="docs/winning-move- logic-schemat.jpg">
 </details>
 
-## Acknowledgements
-I would like to thank everyone who supported me in the development of this project:
-- My mentor Mo for professional guidance, helpful feedback and words of encouragement whilst creating the project. Also, for encouraging me to learn about the unit test and including it within this project.
-- My partner for his support and playing/testing the game with me
-- Code Institute community on Slack for resources and support
