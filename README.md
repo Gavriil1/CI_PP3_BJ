@@ -576,13 +576,11 @@ When running the test initially, there was a TypeError called - 'TypeError: 'int
 
 | **Bug** | **Fix** |
 | ------- | ------- |
-| When selecting 'go back to main menu' option after the game has finished, the game title was not displayed | Correct the function's indentation |
-| When selecting a correct menu option after a few wrong numeric inputs the relevant game option was not called | Move the while loop at the top within the function |
-| Underscores within the game title were not displayed after deployment to Render portal | Changed color settings for yellow & red |
-| Gradient background color does not take up the full screen size | Add background-attachment property |
-| Players names input values are not displayed in the game – instead of name a “‘Player1’’s / ‘Player2’’s move.” is shown | Reassign a value of player1name & player2name to the indexed-0 value (name) input by the user in ‘create_new_players’ function |
-| Users input data was recorded in the same row in four columns instead of 2 separate rows | Created a list of players and while loop inside the 'register_new_players' function for Google Spreadsheet update separately for two players |
-| There were quite a few errors and warnings related to exceeded number of characters in line, whitespace within a blank line, trailing white spaces or missing white spaces around operators | Split the comments or print functions into two separate rows maintaining correct indentation. Followed a guidance within pep8 online tool and corrected all warnings and errors |
+| After deployment application did not work in heroku| Saved requirements of application to requirements.txt file and pushed to github|
+| After adding def summary() the application started stopping the game on second round| I made "game" variable global |
+| The casino and player were reciving cards number out of range | Fixed deck array and deleted incorrect number. |
+| While loop was not able to filter all incorrect entries. | Moved "user_response_str" inside the while loop. After that the issue resolved. |
+
 
 ## Deployment
 
@@ -645,12 +643,9 @@ Follow these steps to clone the repository:
 
 ## Credits
 
-### Images
-- [Flaticon](https://www.flaticon.com/free-icon/connect_1707222) was used for the website favicon
-
 ### Code
 - [ASCII Art Generator](http://patorjk.com/software/taag/) was user to generate a "Welcome Message"
 - [Code Institute](https://codeinstitute.net/global/) was used to learn how to save, and retrieve data with Google API from google worksheets.
-- Youtube video on [Unit Test in Python](https://www.youtube.com/watch?v=1Lfv5tUGsn8) made by Socratica was very helpful to understand the concept of unit tesing
+
 
 
