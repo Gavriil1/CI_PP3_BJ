@@ -8,13 +8,11 @@
 
 ## About
 
-I created command-line version of casino game Black Jack.
+I created a command-line version of the casino game Blackjack.
 
-The game's participants are Casino and Player. Each game consists of 10 rounds.  
-Winner of each round defined by simplified Black Jack rules.
+The game's participants are the Casino and the Player. Each game consists of 10 rounds. The winner of each round is determined by simplified Blackjack rules.
 
-I used Google API, to save results of the rounds to worksheet. In addition to it, I retrieve round results with Google API from worksheet, 
-and estimate propability for a Player Win, Loose, or draw. 
+I used the Google API to save the results of the rounds to a worksheet. Additionally, I retrieve the round results with the Google API from the worksheet to estimate the probability of a Player Win, Loss, or Draw
 
 ## Table of Contents
   - [Project Goals](#project-goals)
@@ -47,27 +45,26 @@ and estimate propability for a Player Win, Loose, or draw.
 
 ### User Goals
 
-
 - Play a fun and interesting game.
-- Practice the game to improve his skills.
+- Practice the game to improve your gaming skills.
 
 ### Site Owner Goals
 
-- Create user friendly and intiutive environment for the game.
-- Create a game that save all events of a game in a log file.
-- Estimate propabilities for a casino to win, lose or draw.
+- Create a user-friendly and intuitive environment for the game.
+- Create a game that saves all events of a game in a log file.
+- Estimate probabilities for the casino to win, lose, or draw.
 
 ## User Experience
 
 ### Target Audience
 
-The target audience of the game is  people 18+.
+The target audience of the game is individuals aged 18 and above.
 
 ### User Requirements and Expectations
 
-- Simple, easy, intuitive interface to play a game.
-- The text of the game is easy to read.
-- Events, Results of the rounds and Game are presented to the user.
+- Simple, easy, intuitive interface to play the game.
+- The game's text is easy to read.
+- Events, results of the rounds, and the game are presented to the user.
 
 ### User Manual
 
@@ -85,14 +82,14 @@ To access the game rules, user may input "0". For gameplay, any other key can be
 
 Rules of the game are:
 
-    1) Player and Casino receives two random cards from the followoing array: unlimitted_deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
-    2) Player can see both his cards and only one card of the casino
-    3) If at some point of the game the sum of the cards is over 21 casino/player who have the cards loses straight away
-    4) If at some point of the game, the sum of the card is 21, casino/player who have the cards wins straight away.
-    5) If sum of the cards is bellow 21 for both players and noone wants to take additional card, we compaire sum of player and casino cards to define a winner.
-
-    6) After receiving two cards the player may choose to receive additional card.
-    7) If player do not want to take additional card, casino check if Casino SUM > Player SUM and if Casino SUM 17. If it is the case, casino takes additional card.  If the above statement is not true, casino does not take any additional card.
+1) Player and Casino receive two random cards from the following array: unlimited_deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11].
+2) The player can see both their cards and only one card of the casino.
+3) If at some point in the game the sum of the cards is over 21, the casino/player who has the cards loses straight away.
+4) If at some point in the game, the sum of the cards is 21, the casino/player who has the cards wins straight away.
+5) If the sum of the cards is below 21 for both players and neither wants to take an additional card, we compare the sum of the player and casino cards to define a winner.
+6) After receiving two cards, the player may choose to receive an additional card.
+7) If the player does not want to take an additional card, the casino checks if the casino's sum > the player's sum and if the casino's sum is 17. If this is the case, the casino takes an additional card. If the above statement is not true, the casino does not take any additional card.
+8) The casino wins the game when the "casino sum" > "player sum" or when the casino sum = 21. The player wins the game if at the end of a round, the "player sum" > "casino sum".
 
 #### Game
 
@@ -109,7 +106,7 @@ After user has an option to take an additional card. If player receive an additi
 2. Player sum = 21. Player wins
 3. Player Sum <21 in this case player may take additional card. If player does not take additional card the casino starts playing.
 
-After the user rejects to take a new card the casino starts playing. Casino Checks if casino sum > player sum. In this is the case, casino wins.
+After the user rejects to take a new card the casino starts playing. Casino Checks if "casino sum" > "player sum". In this is the case, casino wins.
 
 If Casino SUM <= Player SUM and Casino Sum < 17 the casino takes additional cards.
 in this senario we have the following outomes:
@@ -130,8 +127,8 @@ Here is an output the user is going to see:
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 After 10 rounds the score is 
-PLAYER:2 CASINO:0
-Hello worldplayer won a game of 10 rounds
+PLAYER:8 CASINO:2
+Player won a game of 10 rounds
 PRESS ANY KEY TO PLAY. PRESS 0 TO SEE GAME STATS:
 
 
@@ -167,10 +164,10 @@ If the user press 0 he will see an output in the following format:
 5. I expect to receive feedback when the game concludes. 
 6. I want to visually observe the new card I receive when dealt a new card.
 7. I want to visually observe the new card the casino receives when it recives a new card. 
-8. 7a I want to have an option, to choose if I want to receive an additional card. 
+8. I want to have an option, to choose if I want to receive an additional card. 
 
 ### Site Owner
-9. I want to be able to see the propabilites casino winning losing or draw the game. 
+9. I want to be able to see the propabilites of casino winning losing or draw the game. 
 10. I want to provide feedback to the user when they make incorrect inputs or when deciding whether to draw a new card or not. 
 11. I want to welcome user with a welcome message.
 
