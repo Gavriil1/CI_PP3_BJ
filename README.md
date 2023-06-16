@@ -185,10 +185,16 @@ If the user press 0 he will see an output in the following format:
 
 ### Flowchart
 
-The provided flowchart presents a concise overview of the application's structure and logic.
+Because of complicated sturcture, I devided application chart in two charts.
+The first chart shows the flow of a Round.
+The second chart has a game chart with while loops. I added Round Flow Chart to it as a rectangle.
 
-<details><summary>Flowchart</summary>
-<img src="docs/Connect4-flowchart.jpg">
+<details><summary>Round Flow Chart</summary>
+<img src="docs/flowcharts/round_play_flow_chart.png">
+</details>
+
+<details><summary>Game Flow Chart</summary>
+<img src="docs/flowcharts/game_flow-chart.png">
 </details>
 
 ## Technologies Used
