@@ -32,10 +32,9 @@ I used the Google API to save the results of the rounds to a worksheet. Addition
     - [Frameworks & Tools](#frameworks--tools)
     - [Libraries](#libraries)
   - [Features](#features)
-  - [Validation](#validation)
   - [Testing](#testing)
-    - [Manual Testing](#manual-testing)
-    - [Automated Testing](#automated-testing)
+    - [Validation](#validation)
+    - [Manual Testing](#manual-testing)  
   - [Bugs](#bugs)
   - [Deployment](#deployment)
   - [Credits](#credits)
@@ -93,13 +92,11 @@ Rules of the game are:
 
 #### Game
 
-When the user click "RUN Program"
-He is welcomed to the game. The game informs him that he is going to play a game of 10 rounds. Website informs him that results of the game will be saved to Excel.
+When the user clicks "RUN Program," they are welcomed to the game. The game informs them that they are going to play a game of 10 rounds. The website informs them that the results of the game will be saved to Excel.
 
-After the user has an option to press 0 to see game manual,  or to press any other key to start a game.
+Afterward, the user has the option to press 0 to see the game manual or press any other key to start the game.
 
-When the game starts the user receives 2 cards and see both of them. Casino also receives two cards but player can see only 1 of them.
-
+Once the game starts, the user receives 2 cards and can see both of them. The casino also receives two cards, but the player can only see 1 of them.
 
 After user has an option to take an additional card. If player receive an additional card we have three outcomes
 1. Player SUm  > 21. In this situation the player loses
@@ -204,7 +201,7 @@ The second chart has a game chart with while loops. I added Round Flow Chart to 
 - [GitHub](https://github.com/) was used to store a code.
 - [Google Cloud Platform](https://cloud.google.com/cloud-console/) It was utilized to handle access and permissions for various Google Services, including Google authentication, Google Sheets, and others.
 - [Google Sheets](https://docs.google.com/spreadsheets) were used to store game logs and game's statistics
-- [PEP8](http://pep8online.com/) was used as a python code checker.
+- [PEP8](https://pep8ci.herokuapp.com/) was used as a python code checker.
 - [heroku Platform](https://www.heroku.com//) was user to deploy a game to live website.
 - [Gitpod](https://www.gitpod.io/)
 VSCode was used to write the project code using Code Institute template
@@ -414,9 +411,10 @@ User story 10
 ![User Input Validation](docs/features/validation.png)
 </details>
 
+## Testing
 
 
-## Validation
+### Validation
 
 [PEP8 Validation Service](https://pep8ci.herokuapp.com/) The code underwent verification for PEP8 compliance and successfully passed without any errors or warnings.
 
@@ -425,13 +423,8 @@ User story 10
 </details>
 
 
-
-
-
-
-
-### User story testing
-
+### Manual Testing
+<details><summary>See user stories testing</summary>
 
 1. I desire distinct choices to choose from on the main menu.  
 
@@ -548,30 +541,8 @@ User story 10
 <img src="docs/user_stories/welcme.png">
 </details>
 
-### Automated Testing
-<details><summary>See unit testing</summary>
-
-- I wrote unit tests using Python unittest library
-- I tested separate functions to verify correct user input:
-  - validation of user email and user name input
-
-I needed to amend the function and add 'Try Except' blocks to handle TypeError.
-Initial error called - 'TypeError: object of type 'int' has no len()'
-
-
-![User email unit test](docs/testing/unit-tests/email-validation-test.jpg)
-![User name unit test](docs/testing/unit-tests/username-validation-test.jpg)
-
-  - validation of data in log_in_players and register_new_players
-
-When running the test initially, there was a TypeError called - 'TypeError: 'int' object is not iterable'. I handled this error by adding 'Try Except' blocks to both functions. This resulted with passed test.
-
-![Log-in unit test](docs/testing/unit-tests/log-in-validation-test.jpg)
-![Registration unit test](docs/testing/unit-tests/registeration-test.jpg)
-
 </details>
 
-[Back to Table Of Contents](#table-of-contents)
 ## Bugs
 
 | **Bug** | **Fix** |
