@@ -8,15 +8,13 @@
 
 ## About
 
-This is a command-line version of the Casino Black Jack game.
+I created command-line version of casino game Black Jack.
 
-The game is played between Casino and Player. Player make a bet and after the game start. The winning side receives double of its betting amount.
+The game's participants are Casino and Player. Each game consists of 10 rounds.  
+Winner of each round defined by simplified Black Jack rules.
 
-Rules of the game are:
-
-    1) The sum of the cards should not be over 21, otherwise casino/player who has the hand loses straight away
-    2) If the sum of the cards is 21, player/casino who have this hand wins straight away.
-    3) If casino and player do not want to take other card. We see whose sum is higher to determine a winner.
+I used Google API, to save results of the rounds to worksheet. In addition to it, I retrieve round results with Google API from worksheet, 
+and estimate propability for a Player Win, Loose, or draw. 
 
 ## Table of Contents
   - [Project Goals](#project-goals)
@@ -50,15 +48,14 @@ Rules of the game are:
 ### User Goals
 
 
-- Play a fun game.
-- Receive anotation from the game to make the game enjoyable.
-- Well designed game when the text of the game is easy readable
+- Play a fun and interesting game.
+- Practice the game to improve his skills.
 
 ### Site Owner Goals
 
 - Create user friendly and intiutive environment for the game.
-- Create a game that save log file of the game.
-- Create a code which collect statistics about results of the game.
+- Create a game that save all events of a game in a log file.
+- Estimate propabilities for a casino to win, lose or draw.
 
 ## User Experience
 
