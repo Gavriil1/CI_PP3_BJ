@@ -373,7 +373,7 @@ def stats():
     print(Fore.GREEN + f"PLAYER'S PROPABILITY TO WIN :{player_percentage}%")
     print(Fore.GREEN + f"CASINO'S PROPABILITY TO WIN:{casino_percentage}%")
     print(Fore.GREEN + f"THE PROBABILITY FOR A DRAW IS: {drawpercentage}%")
-
+    input("Press Any Key to Continue:\n")
 
 def summary():
     '''
@@ -405,7 +405,6 @@ def summary():
     player_points = 0
     casino_points = 0
     game = 1
-    print(game)
 
 
 def main():
@@ -441,6 +440,3 @@ def main():
 
 main()
 
-
-
-print("hello")
