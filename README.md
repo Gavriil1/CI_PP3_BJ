@@ -615,4 +615,3 @@ Follow these steps to clone the repository:
 - [ASCII Art Generator](http://patorjk.com/software/taag/) was user to generate a "Welcome Message"
 - [Code Institute](https://codeinstitute.net/global/) was used to learn how to save, and retrieve data with Google API from google worksheets.
 
-### Code3333
