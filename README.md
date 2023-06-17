@@ -254,7 +254,7 @@ User Story: 2
 
 ![game_rules](docs/features/game_rules.png)
 </details>
------------------------------------------
+
 
 
 - Menu to start a game after rules output.
@@ -266,7 +266,7 @@ User Story: 1
 
 ![game_rules_menu](docs/features/game_rule_menu.png)
 </details>
-  ---------------------------------------
+ 
 
 
 
@@ -281,13 +281,13 @@ User story: 3
 
 ![gplayer_cards](docs/features/player-cards.png)
 </details>
--------------------------------------
+
 <details>
     <summary>Player's Cards</summary>
 
 ![gplayer_cards](docs/features/player-cards.png)
 </details>
----------------------------------------------
+
 
 User can see the first card of the casino.
 
@@ -299,7 +299,7 @@ User Story: 3
 ![gplayer_cards](docs/features/casino-card.png)
 </details>
 
--------------------------------------
+
 
 User has an option to choose to get a new card or not.
 
@@ -312,7 +312,7 @@ User Story: 8, 6
 </details>
 
 
----------------------------------
+
 User sees a new card, when he chooses to pick up a new card from a deck
 
 User Story: 6
@@ -323,9 +323,9 @@ User Story: 6
 ![gplayer_cards](docs/features/additional_card.png)
 </details>
 
----------------------------------
 
----------------------------------
+
+
 User sees feedback when the casino playing.
 
 User story: 3, 7
@@ -349,7 +349,6 @@ User Story: 4
 ![Player draws](docs/features/result_draw.png)
 </details>
 
----------------------------------
 
 User sees the round score.
 
@@ -362,7 +361,6 @@ User story: 4
 </details>
 
 
----------------------------------
 
 <details>
     <summary>Round Stats</summary>
@@ -380,7 +378,6 @@ User story: 5
 
 ![casino_play](docs/features/game_result.png)
 </details>
----------------------------------
 
 #### Go to main menu
 
@@ -618,5 +615,4 @@ Follow these steps to clone the repository:
 - [ASCII Art Generator](http://patorjk.com/software/taag/) was user to generate a "Welcome Message"
 - [Code Institute](https://codeinstitute.net/global/) was used to learn how to save, and retrieve data with Google API from google worksheets.
 
-
-
+### Code3333
