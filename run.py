@@ -1,8 +1,6 @@
 # Your code goes here.
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
-# https://www.blackjackapprenticeship.com/how-to-play-blackjack/#:~:text=Blackjack%20is%20played%20with%20a,%2CK)%20count%20as%2010.
-
 
 from datetime import datetime
 import time
@@ -98,7 +96,7 @@ def start_game():
     time.sleep(print_delay)
     print(Fore.MAGENTA + "Result of each round are saved in Excel")
     time.sleep(print_delay)
-    show_man = input("Ppress 0 to read game manual. Press 1 to start a game\n")
+    show_man = input("For manual press 0. To play game press Any other key \n")
     if show_man == "0":
         manual()
 
@@ -296,9 +294,9 @@ def player_start_first_playing():
         # print(player_cards)
         if sum(player_cards) == 21:
             time.sleep(print_delay)
-            print("PLAYER SUM = 21. PLAYER WON!")
+            print(Fore.MAGENTA + "PLAYER SUM = 21. PLAYER WON!")
             time.sleep(print_delay)
-            print("BLACK JACK !")
+            print(Fore.GREEN + "BLACK JACK !")
             player_points = player_points + 1
             time.sleep(print_delay)
             print(Fore.RED + f"PLAYER:{player_points} CASINO:{casino_points}")
@@ -308,7 +306,7 @@ def player_start_first_playing():
         if sum(player_cards) > 21:
             print(player_cards)
             time.sleep(print_delay)
-            print("PLAYER SUM > 21. CASINO WON")
+            print(Fore.RED + "PLAYER SUM > 21. CASINO WON")
             time.sleep(print_delay)
             print(f"PLAYER SUM {sum(player_cards)}")
             casino_points = casino_points + 1
@@ -322,11 +320,11 @@ def player_start_first_playing():
             print(f"YOU HAVE {len(player_cards)} cards. The cards VALUES ARE:")
             for card in player_cards:
                 time.sleep(print_delay)
-                print(f"    {card}")
+                print(Fore.BLUE + f"    {card}")
             time.sleep(print_delay)
-            print(f"The sum of the cards is {sum(player_cards)}")
+            print(Fore.CYAN + f"The sum of the cards is {sum(player_cards)}")
             time.sleep(print_delay)
-            print(f"CASINO FIRST CARD {casino_cards[0]}")
+            print(Fore.RED + f"CASINO FIRST CARD {casino_cards[0]}")
             time.sleep(print_delay)
             print("DO YOU WANT ADDITIONAL CARD? PRESS '1' FOR YES, '0' FOR No")
 
@@ -340,11 +338,11 @@ def player_start_first_playing():
                     valid_entry = True
                 else:
                     time.sleep(print_delay)
-                    print("PLEASE ENTER VALID ENTRY '0' OR  '1'")
+                    print(Fore.RED + "PLEASE ENTER VALID ENTRY '0' OR  '1'")
 
             else:
                 time.sleep(print_delay)
-                print("PLEASE ENTER VALID ENTRY '0' OR '1'")
+                print(Fore.RED + "PLEASE ENTER VALID ENTRY '0' OR '1'")
 
     if user_response == 0:
         logs_u.append_row([tstamp, "Player pressed 0. Casiono starts"])
